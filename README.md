@@ -4,7 +4,7 @@
 
 * Hamza Ahmad
 * Murad Alkhatib
-* Mona Saleh
+* Mona Salih
 * Khaled Alqrainy
 
 ## Cooperation Plan
