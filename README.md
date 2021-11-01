@@ -50,5 +50,5 @@ The project management tool of choice is Trello.
 
 - Everything concerned with code except management material will live on GitHub.
 - We plan to create an organisation or a repository and add all the team members as collaborators, but mostly an organisation.
-- Our git flow includes creating a branch for every agreed upon feature or any other excremental feature, then every time a member pushed their work, we agreed on reviewing it all together in order to benefit from each other in terms of the git flow itself, and to have an idea of how the member who pushed the work thinks and performs. Once we review, we agreed to let the team leader merge that branch once we make sure everything is up to the standards and there are not conflicts.
+- We have agreed on adapting the **Gitflow workflow** since it is understood by all the members of the team, and it suits our project's needs.
 - We agreed to gather to review pull requests for everyone to learn and benefit, but we left the merging task for the team leader. The frequency of merging will usually depend on the way we distribute tasks, but we planned to combine a number of them that are related to the same task or feature then we merge them. We will communicate that it is time to merge when we check the dashboard on Trello.
