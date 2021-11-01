@@ -44,6 +44,8 @@ To identify tasks and assign them as well, we planned not to let any of the team
 
 The project management tool of choice is Trello.
 
+[Trello board link](https://trello.com/b/eigIzOvr/mid-term-project-board)
+
 ## Git Process
 
 - Everything concerned with code except management material will live on GitHub.
