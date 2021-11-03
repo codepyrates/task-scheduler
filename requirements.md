@@ -28,7 +28,7 @@ Users will be able to select a number of tasks the assistance offers like openin
 
 ### What will your product not do
 
-* This App will never need internet connection to work.
+* This App will not correct the words spelling.
 
 
 ## Minimum Viable Product 
