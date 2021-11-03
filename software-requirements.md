@@ -28,7 +28,10 @@ Users will be able to select a number of tasks the assistance offers like openin
 
 ### What will your product not do
 
-* This App will not correct the words spelling.
+* This app does not correct spelling.
+* This app does does not start when the operating system starts.
+* This app does not show a graphical user interface for the user to interact with it, only via commands and text.
+* This app does not support input or output of forms other than text.
 
 
 ## Minimum Viable Product 
