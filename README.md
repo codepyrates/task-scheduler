@@ -1,6 +1,6 @@
 # Task Scheduler
 
-## Team name: codepyrates
+## Team Name: codepyrates
 
 ### Team members:
   *  Hamza Ahmad
