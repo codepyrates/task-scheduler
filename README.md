@@ -79,8 +79,24 @@ As a user I want to search for a topic and see a list of articles from a set of 
 #### Feature Tasks
 
 1. The user can type the name of the topic and see a list of related articles.
-2. The user can select or choose which article to read from the results.
-3. The user can save articles in reminders to read them later locally.
+
+     * Given [the user started the search app]
+     * When [the user types the name of a topic and hits enter]
+     * Then [a list of 5 articles from pre-selected websites will show up numbered]
+
+
+3. The user can select or choose which article to read from the results.
+
+     * Given [a numbered list of 5 articles is shown for the user]
+     * When [the user types the number of the article and hits enter]
+     * Then [The content of the article will get shown for the user]
+
+
+5. The user can save articles in reminders to read them later locally.
+
+     * Given [a numbered list of 5 articles is shown for the user]
+     * When [the user selects to save the article to view it later]
+     * Then [the reminder app will start to set the time and message for the reminder]
 
 #### Acceptance Tests
 
@@ -96,8 +112,29 @@ As a user  I want something simple to entertain me that does not interfere with
 
 1. The program can predict the time when the user is not busy with anything (idle).
 2. The user expects some entertaining activities like playing music or a simple game.
-3. The user can dismiss or decline the proposed activity.
-4. The user can turn off this feature.
+
+    * Given [the user is idle or not busy]
+    * When [the program detects the user is not busy or idle]
+    * And [the feature is not turned off]
+    * Then [a notification will pop up for the user asking them if they want to start an entertaining activity]
+    ##
+    
+    * Given [a notification has popped up asking the user to approve starting an entertaining activity]
+    * When [the user approves to start an entertaining activity]
+    * Then [a random entertaining activity will start]
+
+5. The user can dismiss or decline the proposed activity.
+
+    * Given [a notification has popped up asking the user to approve starting an entertaining activity]
+    * When [the user dismisses or declines starting a random entertaining app]
+    * Then [notification is removed and the activity is killed]
+
+
+7. The user can turn off this feature.
+
+    * Given [the user is in the settings page]
+    * When [the user turns off the entertainment feature]
+    * Then [entertainment feature is turned off]
 
 #### Acceptance Test
 
