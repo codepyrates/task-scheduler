@@ -1,10 +1,8 @@
 name: Python application
 
 on:
-  push:
-    branches: [ main, develop, reminders, app_grouping, note_taking, search, entertainment ]
-  pull_request:
-    branches: [ main, develop, reminders, app_grouping, note_taking, search, entertainment ]
+  push
+  pull_request
 
 jobs:
   build:
