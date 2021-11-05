@@ -1,0 +1,13 @@
+language: python
+python:
+  - 3.9
+script:
+  - pytest
+
+notifications:
+  email:
+    recipients:
+      - h.radiahmad@gmail.com
+      - monaalobisat@gmail.com
+    on_success: always
+    on_failure: always

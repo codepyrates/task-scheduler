@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "task-scheduler"
+version = "0.1.0"
+description = ""
+authors = ["HamzaAhmad97 <h.radiahmad@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^6.2.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
