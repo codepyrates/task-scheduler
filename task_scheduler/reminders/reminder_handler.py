@@ -1,6 +1,9 @@
 import pandas as pd
 from datetime import datetime as dt
 import time
+import tkinter as tk
+import os
+import time
 
 class RemindersHandler:
     def __init__(self, path):
@@ -35,3 +38,17 @@ class RemindersHandler:
                 print("Please enter a valid option.")
     def get_next_reminder(self):
         return self.next_reminder    
+    def reminder_thread(self):
+        next_reminder = self.get_next_reminder()
+        while True:
+            time.sleep(1)
+            t = str(dt.now().replace(microsecond=0).time())
+            d = str(dt.now().replace(microsecond=0).date())
+            if next_reminder['time'] == t and next_reminder['date'] == d:
+                beep = lambda x: os.system("echo -n '\a';sleep 0.2;" * x)
+                beep(50)
+                window = tk.Tk()
+                greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
+                greeting.pack()
+                window.mainloop()
+                break
