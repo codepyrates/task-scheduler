@@ -101,8 +101,8 @@ def update_all_feature(input_details):
         update_date_app(input_details)
     elif input_details == "Time":
         update_time_app(input_details)
-    elif input_details == "group name":
-        update_group_app_name(input_details)
+    # elif input_details == "group name":
+    #     update_group_app_name(input_details)
 #=======================update_group_app==========================
 def update_group_app(input_detais):
     #here programe show group_app_containt for user to choose from them 
@@ -138,8 +138,10 @@ def update_group_app(input_detais):
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
         exit
-    else:
+    elif complet_update == 'N' or complet_update =='n':
         update_details()
+    else:
+        exit
 
 #=======================update_date_app==========================
 def update_date_app(input_details):
@@ -158,6 +160,21 @@ def update_date_app(input_details):
         update_details()
     else:
         exit
+
+#=======================update_time_app==========================
+def update_time_app(input_details):
+    if input_details in store_group_details:
+        del store_group_details ['Time']
+        print (store_group_details)
+        get_time()
+        print (store_group_details)
+         # complet update
+    complet_update = input ("did you finish update?[Y/N] ")
+    if complet_update == 'Y' or complet_update == 'y':
+        print ("your update store successfully")
+        exit
+    else:
+        update_details()
 
 #=======================end=======================================
 
