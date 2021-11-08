@@ -9,6 +9,6 @@ def reminder_handler():
     return rmh
 
 def test_start_scenario_1(reminder_handler):
-    diffs = reminder_mocker(reminder_handler.start, path="tests/test_reminders/test_view_reminders/start.txt")
+    diffs = reminder_mocker(reminder_handler.start, path="tests/test_reminders/test_start/start.txt")
     assert not diffs, diffs
     
