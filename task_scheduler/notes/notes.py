@@ -29,6 +29,9 @@ class NotesHandler:
         for index, title, content in records:
             print(f"{index}. {title}\n  {content}")
 
+    def delete_note(self, index):
+        self.notes.drop(index, inplace=True)
+        self.notes.reset_index(drop=True,inplace=True)
 
 
 if __name__ == "__main__":
@@ -37,7 +40,7 @@ if __name__ == "__main__":
     
     while True:
 
-        choice = input("a: Add new note, v: View notes, d: Delete note, m: modify, q: quit,  >>> ")
+        choice = input("a: Add new note, v: View notes, d: Delete note, m: Modify note, Q: quit,  >>> ")
         if choice == "q": break
 
         elif choice == "a":
@@ -48,7 +51,11 @@ if __name__ == "__main__":
 
         elif choice == "v":
             handler.view_notes()
-        
+
+        elif choice == "d":
+            num = input("Enter the number of the note you want to delete >>> ")
+            handler.delete_note(int(num))
+            print(f"Note number {num} has been deleted successfully!")
         
         else:
             print("Please choose one of the available choices")
