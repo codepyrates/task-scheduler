@@ -30,6 +30,22 @@ def get_app( app_type):
     return None
 
 
+def get_date ():
+    inputDate = input("Enter the date in format 'dd/mm/yy' : ")
+    try:
+        inputDate2 = datetime.datetime.strptime(inputDate,"%d-%m-%Y").date()  
+        # now we have to store new date in list
+        # print(str(inputDate2))
+        store_group_details["Date"]= str(inputDate2)
+                
+    except:
+        print ("enter date not match with the formela try it again or type quite ")
+        inputDate = input("Enter the date in format 'dd-mm-yy' : ")
+        if inputDate == "quit":
+            exit
+        else:
+            get_date( inputDate)
+
 
 #=======================end=======================================
 
@@ -39,3 +55,9 @@ if __name__ == "__main__":
     input_group = input(">>")
     print(get_app( input_group)) #'app_group1'
     print(store_group_details,"store_group_details") # store_group_details 
+
+    
+    # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
+    get_date()
+    print(store_group_details,"store_group_details") # store_group_details 
+
