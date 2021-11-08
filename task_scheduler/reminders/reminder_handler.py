@@ -4,6 +4,7 @@ import time
 import tkinter as tk
 import os
 import time
+import threading
 
 class RemindersHandler:
     def __init__(self, path):
@@ -52,3 +53,6 @@ class RemindersHandler:
                 greeting.pack()
                 window.mainloop()
                 break
+    def start_reminder_thread(self):
+        reminder = threading.Thread(target=self.reminder_thread)
+        reminder.start()  
