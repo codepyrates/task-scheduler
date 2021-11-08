@@ -1,4 +1,4 @@
-from websites_to_search import wikipedia_search , britannica_search
+from websites_to_search import wikipedia_search , britannica_search , citizendium_search
 
 # Start Search Option scenario
 print("Welcome to search, start by typing something to search for.")
@@ -17,7 +17,7 @@ if website == 2 :
     
 if website == 3 :
     # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
-    # citizendium_search(topic_search)
+    citizendium_search(topic_search)
     pass
 # give the user some options    
 print("Options:   b: go back to article list    n: save as a note  q: quit")
