@@ -37,12 +37,13 @@ def wikipedia_search(topic , back = None):
                 list_of_choices.append(i.text)
                 if number_of_choices == 5 :
                     break
-        user_choices = int(input("Search >>>"))
+        user_choices = input("> ")
+        user_choices = int(user_choices)
         
         print(list_of_choices[user_choices - 1])
         wikipedia_search(list_of_choices[user_choices - 1] , topic)
 
-def britannica_search(topic):
+def britannica_search(topic ='animal' ):
     url = f"https://www.britannica.com/search?query={topic}"
     res = requests.get(url)
     html_text = res.text
@@ -101,15 +102,21 @@ def citizendium_search(topic , counter = 0):
 
 
 
-def list_of_websites(topic_search):
+def list_of_websites(topic_search = 'animal'):
+    
     print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_search} from Britannica.\n3.Article about {topic_search} from citizendium.")
-    website = int(input("Search >>>"))
-    if website == 1 :
+    prompt = input("> ").lower()
+    # website = '2'
+    if prompt == '1' :
         # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
         wikipedia_search(topic_search)
-    if website == 2 :
+    if prompt == '2' :
         # if the user choose 2 the britannica function will start to give him an article from britannica site.
         britannica_search(topic_search)
-    if website == 3 :
+    if prompt == '3' :
         # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
         citizendium_search(topic_search)
+
+
+
+britannica_search()
