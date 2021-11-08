@@ -67,6 +67,20 @@ def get_time():
 def group_app_name ():
     gname = input("Please enter group_app name ")
     store_group_details["group name"]= gname
+#=======================summary part=============================
+#here will show summary for user and he can update the details
+def summary_details(summary_group):
+    if summary_group == "summary":
+        if store_group_details:
+            for k,v in store_group_details.items():
+                print(k,'\n', v)
+                
+        update_check = input("did you want to update on this details [Y/N]? ") 
+        if update_check == "Y" or update_check == "y": #if user enter y here will call update_details() function
+            update_details()
+        elif update_check == "N" or update_check == "n":
+                    print ("no")
+
 
 #=======================end=======================================
 
@@ -89,4 +103,10 @@ if __name__ == "__main__":
     # # gname = input("Please enter group_app name ")
     group_app_name()
     print(store_group_details,"store_group_details")
+
+    print("********************************************")
+    summary_group = str(input("if you want see app group detalis pleas enter summary "))
+    summary_details (summary_group)
+    print("")
+
 
