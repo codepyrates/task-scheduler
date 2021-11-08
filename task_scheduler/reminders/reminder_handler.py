@@ -42,3 +42,15 @@ class RemindersHandler:
         d = str(self.reminders.iloc[index, self.reminders.columns.get_loc('time')].date())
         m = self.reminders.iloc[index, self.reminders.columns.get_loc('message')]
         return (t, d, m)
+    def handle_update(self):
+        print("Enter the index of the reminder you want to update:")
+        idx = input("➤➤➤   ")
+        t,d,m = self.get_time_and_date_from_index(int(idx))
+        print(f"Enter new time, empty to keep the old one, old one is {t}:")
+        tm = input("➤➤➤   ")
+        print(f"Enter new date, empty to keep the old one, old one is {d}:")
+        dt = input("➤➤➤   ")
+        print(f'Enter new message, empty to keep the old one, old one is\n“{m}”:')
+        msg = input("➤➤➤   ")
+        self.update_reminder(int(idx), f"{dt} {tm}", msg)
+        print("Reminder has been updated successfully!")
