@@ -100,7 +100,6 @@ def citizendium_search(topic = "fish" , counter = 0):
         citizendium_search(list_of_choices[user_choices - 1] , counter)
 
 
-
 def list_of_websites(topic_search = 'dog'):
     
     print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_search} from Britannica.\n3.Article about {topic_search} from citizendium.")
@@ -117,6 +116,5 @@ def list_of_websites(topic_search = 'dog'):
         citizendium_search(topic_search)
 
 
-list_of_websites()
 
 
