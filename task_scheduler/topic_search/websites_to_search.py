@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def wikipedia_search(topic , back = None):
+def wikipedia_search(topic = 'cat' , back = None):
     """
     this function is tack an topic(text) as an argument and return an
     article how descrip this topic from wikipedia
@@ -19,13 +19,13 @@ def wikipedia_search(topic , back = None):
     for i in citation:
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
-            print(i.text)
+            print(i.text.strip('\n'))
             break
         else :
             text += "m"
         
 
-    if  text != 's':
+    if  text == 'm':
         print("Please can you discripe exactly what you search about, Because no subject have this word alone")
         citation = soup.find_all('a')
         number_of_choices = 0
@@ -68,13 +68,13 @@ def citizendium_search(topic , counter = 0):
     for i in citation:
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
-            print(i.text)
+            print(i.text.strip(' '))
             break
         else :
             text += "m"
         
 
-    if  text != 's':
+    if  text == 'm':
         
         new_res = requests.get(f"https://en.citizendium.org/wiki/Special:Search/{topic}")
         new_soup = BeautifulSoup(new_res.text, "html.parser")
@@ -119,4 +119,3 @@ def list_of_websites(topic_search = 'animal'):
 
 
 
-britannica_search()
