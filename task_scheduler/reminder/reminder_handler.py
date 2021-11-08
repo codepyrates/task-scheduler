@@ -19,4 +19,13 @@ class RemindersHandler:
         for index, time, message in records:
             t = pd.to_datetime(str(time))
             print(f"{index}. Time: {t.time()}\n   Date: {t.date()}\n   Message: {message}")
-    
+    def start(self):
+        time.sleep(1)
+        print("Welcome to Reminders ⏰")
+        while True:
+            time.sleep(1)
+            self.view_reminders()
+            print("Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }")
+            pmt = input("➤➤➤   ")
+            if pmt == 'q':
+                return
