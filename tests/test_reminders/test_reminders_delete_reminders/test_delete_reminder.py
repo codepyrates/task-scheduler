@@ -6,14 +6,14 @@ from tests.test_reminders.reminders_mocker import reminder_mocker
 def reminder_handler():
     rmh = RemindersHandler("./tests/test_reminders/reminders.csv")
     return rmh
-@pytest.mark.xfail
+
 def  test_delete_reminder_by_number_of_remaining_reminders(reminder_handler):
     expected = 1
     reminder_handler.delete_reminder(1)
     actual = len(reminder_handler.reminders)
     assert actual == expected
     
-@pytest.mark.xfail
+
 def test_delete_reminder_by_value_of_remaining_reminders(reminder_handler):
     expected = "First reminder"
     reminder_handler.delete_reminder(1)

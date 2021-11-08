@@ -31,8 +31,8 @@ class RemindersHandler:
             pmt = input("➤➤➤   ")
             if pmt == "q":
                 return
-            elif pmt = "d":
-                self.delete_reminder()
+            elif pmt == "d":
+                self.handle_delete()
             else:
                 print("Please enter a valid option.")
     def delete_reminder(self, index):
@@ -43,3 +43,4 @@ class RemindersHandler:
         print("Enter the index of the reminder you want to delete:")
         idx = input("➤➤➤   ")
         self.delete_reminder(int(idx))
+        print("Reminder has been deleted successfully!")
