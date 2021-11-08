@@ -37,4 +37,8 @@ class RemindersHandler:
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
         self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
         self.sort_reminders()
-        
+    def get_time_and_date_from_index(self, index):
+        t = str(self.reminders.iloc[index, self.reminders.columns.get_loc('time')].time())
+        d = str(self.reminders.iloc[index, self.reminders.columns.get_loc('time')].date())
+        m = self.reminders.iloc[index, self.reminders.columns.get_loc('message')]
+        return (t, d, m)
