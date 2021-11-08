@@ -16,3 +16,8 @@ def test_number_of_rows_in_reminders_instance_variable(reminder_handler):
     expected = 2
     actual = len(reminder_handler.reminders)
     assert actual == expected
+    
+def test_number_of_columns_in_reminders_instance_variable(reminder_handler):
+    expected = 2
+    actual = len(reminder_handler.reminders.columns)
+    assert actual == expected
