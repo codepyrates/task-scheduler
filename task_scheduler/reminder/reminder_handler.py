@@ -19,6 +19,12 @@ class RemindersHandler:
         for index, time, message in records:
             t = pd.to_datetime(str(time))
             print(f"{index}. Time: {t.time()}\n   Date: {t.date()}\n   Message: {message}")
+    
+    def delete_reminder(self, index):
+        self.reminders.drop(index, inplace=True)
+        self.reminders.reset_index(drop=True, inplace=True)
+        self.sort_reminders()
+        
     def start(self):
         time.sleep(1)
         print("Welcome to Reminders ⏰")
