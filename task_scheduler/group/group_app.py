@@ -103,6 +103,44 @@ def update_all_feature(input_details):
         update_time_app(input_details)
     elif input_details == "group name":
         update_group_app_name(input_details)
+#=======================update_group_app==========================
+def update_group_app(input_detais):
+    #here programe show group_app_containt for user to choose from them 
+    group_app_containt ="""
+    app_group1 ==> [vs code, notepad, google]
+    app_group2 ==> [slack,  Discord, zoom, vs code]
+    app_group3 ==> [calculater, google]
+    """
+    print(group_app_containt)
+    update_group_app = input("Select group app name: ")
+
+    # here store_group_details will update based on user input
+    group_list = [{'type': "app_group1", 'app': ['vs code', 'notepad', 'google', ]},
+              {'type': 'app_group2', 'app': ['slack', ' Discord', 'zoom', 'vs code', ]},
+              {'type': 'app_group3', 'app': ['calculater', 'google']}]
+    flag=False
+    saved_group_app = None
+    for group in group_list:
+        if group['type'] == update_group_app:
+            flag =True
+            saved_group_app = group['app']
+        # else :
+        #     exit
+            # print ("inside update function", update_group_app)
+    if flag :
+        # print (store_group_details)
+        del store_group_details [input_detais]
+        # print (store_group_details)
+        store_group_details[f'{update_group_app}'] = saved_group_app
+        print (store_group_details)
+        # complet update
+    complet_update = input ("did you finish update?[Y/N] ")
+    if complet_update == 'Y' or complet_update == 'y':
+        print ("your update store successfully")
+        exit
+    else:
+        update_details()
+
 
 #=======================end=======================================
 
