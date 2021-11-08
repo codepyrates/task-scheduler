@@ -1,4 +1,4 @@
-from websites_to_search import wikipedia_search
+from websites_to_search import wikipedia_search , britannica_search
 
 # Start Search Option scenario
 print("Welcome to search, start by typing something to search for.")
@@ -12,7 +12,7 @@ if website == 1 :
     
 if website == 2 :
     # if the user choose 2 the britannica function will start to give him an article from britannica site.
-    # britannica_search(topic_search)
+    britannica_search(topic_search)
     pass
     
 if website == 3 :
