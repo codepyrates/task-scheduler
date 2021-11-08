@@ -1,4 +1,5 @@
 import pandas as pd
+import time
 class RemindersHandler:
     def __init__(self, path):
         self.path = path
@@ -13,3 +14,18 @@ class RemindersHandler:
         self.next_reminder['time'] = str(self.reminders.iloc[0]['time'].time())
         self.next_reminder['date'] = str(self.reminders.iloc[0]['time'].date())
         self.next_reminder['message'] = self.reminders.iloc[0]['message']
+    def view_reminders(self):
+        records = list(self.reminders.to_records(index = True))
+        for index, time, message in records:
+            t = pd.to_datetime(str(time))
+            print(f"{index}. Time: {t.time()}\n   Date: {t.date()}\n   Message: {message}")
+    def start(self):
+        time.sleep(1)
+        print("Welcome to Reminders ⏰")
+        while True:
+            time.sleep(1)
+            self.view_reminders()
+            print("Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }")
+            pmt = input("➤➤➤   ")
+            if pmt == 'q':
+                return
