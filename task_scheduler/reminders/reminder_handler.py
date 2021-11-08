@@ -37,3 +37,15 @@ class RemindersHandler:
         self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
         self.sort_reminders()
         self.update_next_reminder()
+    def handle_add(self):
+        print("Enter time for new reminder, should follow HH:MM:SS, and in 24 hrs. format: (c) to cancel")
+        tm = input("➤➤➤   ")
+        if tm == "c": return "c"
+        print("Enter date for new reminder, should follow YYYY-MM-DD: (c) to cancel")
+        dt = input("➤➤➤   ")
+        if dt == "c": return "c"
+        print("Enter message for new reminder, leave empty if no message is needed: (c) to cancel")
+        msg = input("➤➤➤   ")
+        if msg == "c": return "c"
+        self.add_reminder(f"{dt} {tm}", msg)
+        print("Your new reminder has been saved successfully!")
