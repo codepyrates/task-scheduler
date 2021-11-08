@@ -28,7 +28,7 @@ def get_app( app_type):
             store_group_details[app_type]=group['app']
             return group['app']
     return None
-#=======================get date part=============================
+
 
 def get_date ():
     inputDate = input("Enter the date in format 'dd/mm/yy' : ")
@@ -55,7 +55,9 @@ if __name__ == "__main__":
     input_group = input(">>")
     print(get_app( input_group)) #'app_group1'
     print(store_group_details,"store_group_details") # store_group_details 
+
     
     # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     get_date()
     print(store_group_details,"store_group_details") # store_group_details 
+
