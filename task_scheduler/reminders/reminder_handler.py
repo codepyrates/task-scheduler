@@ -33,4 +33,8 @@ class RemindersHandler:
                 return
             else:
                 print("Please enter a valid option.")
+    def update_reminder(self, index, newtime, newmessage):
+        self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
+        self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
+        self.sort_reminders()
         
