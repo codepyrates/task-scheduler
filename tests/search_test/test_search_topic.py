@@ -1,6 +1,6 @@
 import pytest
 from flo import mocker
-from task_scheduler.topic_search.websites_to_search import britannica_search ,wikipedia_search
+from task_scheduler.topic_search.websites_to_search import britannica_search ,wikipedia_search,citizendium_search
 
 pytestmark = [pytest.mark.version_2]
 
@@ -13,6 +13,9 @@ def test_wikipedia_search():
     diffs = mocker(wikipedia_search, path="tests/search_test/test_wikipedia_search.txt")
     assert not diffs, diffs
 
+def test_citizendium_search():
+    diffs = mocker(citizendium_search, path="tests/search_test/test_citizendium_search.txt")
+    assert not diffs, diffs
 
 
     

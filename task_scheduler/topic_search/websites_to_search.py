@@ -53,8 +53,7 @@ def britannica_search(topic ='animal' ):
         print(i.findChildren("div" ,recursive = False )[0].text)
         break
 
-def citizendium_search(topic , counter = 0):
-    print(topic)
+def citizendium_search(topic = "fish" , counter = 0):
     """
     this function is tack an topic(text) as an argument and return an
     article how descrip this topic from citizendium
@@ -68,7 +67,7 @@ def citizendium_search(topic , counter = 0):
     for i in citation:
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
-            print(i.text.strip(' '))
+            print(i.text.strip('\n'))
             break
         else :
             text += "m"
@@ -117,5 +116,7 @@ def list_of_websites(topic_search = 'animal'):
         # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
         citizendium_search(topic_search)
 
+
+citizendium_search()
 
 
