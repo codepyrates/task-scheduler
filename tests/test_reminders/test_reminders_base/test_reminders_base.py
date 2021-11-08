@@ -26,3 +26,9 @@ def test_dtype_of_time_column_reminders_instance_variable_is_datetime(reminder_h
     expected = np.dtype('<M8[ns]')
     actual = reminder_handler.reminders.time.dtype
     assert actual == expected
+    
+def test_sort_reminders(reminder_handler):
+    expected = "First reminder"
+    reminder_handler.sort_reminders()
+    actual = reminder_handler.reminders.iloc[0].message
+    assert actual == expected
