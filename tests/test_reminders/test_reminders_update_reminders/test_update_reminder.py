@@ -7,8 +7,8 @@ def reminder_handler():
     return rmh
 
 def test_update_reminder(reminder_handler):
-    expected = "2021-11-11 11:11:11"
-    reminder_handler.update_reminder(0, "2021-11-11 11:11:11", "new message")
+    expected = "2021-11-08 11:11:11"
+    reminder_handler.update_reminder(0, "2021-11-08 11:11:11", "new message")
     actual = str(reminder_handler.reminders.iloc[0]['time'])
     assert actual == expected
     
