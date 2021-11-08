@@ -39,3 +39,7 @@ class RemindersHandler:
             pmt = input("➤➤➤   ")
             if pmt == 'q':
                 return
+            elif pmt == "d":
+                self.handle_delete()
+            else:
+                print("Please enter a valid option.")
