@@ -33,4 +33,5 @@ class RemindersHandler:
                 return
             else:
                 print("Please enter a valid option.")
-        
+    def get_next_reminder(self):
+        return self.next_reminder    
