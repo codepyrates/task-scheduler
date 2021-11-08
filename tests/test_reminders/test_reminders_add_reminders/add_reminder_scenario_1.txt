@@ -20,6 +20,7 @@ Your new reminder has been saved successfully!
 1. Time: 11:11:11
    Date: 2021-11-09
    Message: Second reminder
-1. Time: 22:22:22
+2. Time: 22:22:22
    Date: 2022-12-23
    Message: This is my birthday
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
