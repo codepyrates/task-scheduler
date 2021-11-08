@@ -98,3 +98,18 @@ def citizendium_search(topic , counter = 0):
                     break
         user_choices = int(input("Search >>>"))
         citizendium_search(list_of_choices[user_choices - 1] , counter)
+
+
+
+def list_of_websites(topic_search):
+    print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_search} from Britannica.\n3.Article about {topic_search} from citizendium.")
+    website = int(input("Search >>>"))
+    if website == 1 :
+        # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
+        wikipedia_search(topic_search)
+    if website == 2 :
+        # if the user choose 2 the britannica function will start to give him an article from britannica site.
+        britannica_search(topic_search)
+    if website == 3 :
+        # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
+        citizendium_search(topic_search)
