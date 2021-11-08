@@ -41,3 +41,13 @@ def wikipedia_search(topic , back = None):
         
         print(list_of_choices[user_choices - 1])
         wikipedia_search(list_of_choices[user_choices - 1] , topic)
+
+def britannica_search(topic):
+    url = f"https://www.britannica.com/search?query={topic}"
+    res = requests.get(url)
+    html_text = res.text
+    soup = BeautifulSoup(html_text , "html.parser")
+    li = soup.find_all('li', {'class': 'mb-45'})
+    for i in li :
+        print(i.findChildren("div" ,recursive = False )[0].text)
+        break
