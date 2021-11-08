@@ -63,7 +63,10 @@ def get_time():
         else:
             get_time( inputTime)
 
-
+#=======================group app name part=============================
+def group_app_name ():
+    gname = input("Please enter group_app name ")
+    store_group_details["group name"]= gname
 
 #=======================end=======================================
 
@@ -81,5 +84,9 @@ if __name__ == "__main__":
 
     # inputTime = input("Enter the date in format 'HH:MM' : ")
     get_time()
+    print(store_group_details,"store_group_details")
+
+    # # gname = input("Please enter group_app name ")
+    group_app_name()
     print(store_group_details,"store_group_details")
 
