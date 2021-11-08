@@ -31,6 +31,8 @@ class RemindersHandler:
             pmt = input("➤➤➤   ")
             if pmt == "q":
                 return
+            elif pmt == "u":
+                self.handle_update()
             else:
                 print("Please enter a valid option.")
     def update_reminder(self, index, newtime, newmessage):
