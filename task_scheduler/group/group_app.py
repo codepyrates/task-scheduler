@@ -4,6 +4,10 @@ import datetime
 
 
 store_group_details = {} 
+
+
+    # global store_group_details
+    # store_group_details.append(group['app'])
 #=======================print sentense part=============================
 def print_instruction():
     print("Anton say: select your group app you would open it:")
@@ -19,6 +23,7 @@ def print_instruction():
     print("Anton says: pleas select group name as shown above📣📣")
 
 #=======================get app part=============================
+           
 def get_app( app_type):
     group_list = [{'type': "app_group1", 'app': ['vs code', 'notepad', 'google', ]},
               {'type': 'app_group2', 'app': ['slack', ' Discord', 'zoom', 'vs code', ]},
@@ -28,8 +33,8 @@ def get_app( app_type):
             store_group_details[app_type]=group['app']
             return group['app']
     return None
-
 #=======================get date part=============================
+
 def get_date ():
     inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     try:
@@ -63,6 +68,7 @@ def get_time():
         else:
             get_time( inputTime)
 
+
 #=======================group app name part=============================
 def group_app_name ():
     gname = input("Please enter group_app name ")
@@ -80,7 +86,6 @@ def summary_details(summary_group):
             update_details()
         elif update_check == "N" or update_check == "n":
                     print ("no")
-
 #=======================update part=============================
 def update_details():# here the user choose which feild he want to update
     input_details = input("please select which field you want to change: ")
@@ -101,8 +106,8 @@ def update_all_feature(input_details):
         update_date_app(input_details)
     elif input_details == "Time":
         update_time_app(input_details)
-    # elif input_details == "group name":
-    #     update_group_app_name(input_details)
+    elif input_details == "group name":
+        update_group_app_name(input_details)
 #=======================update_group_app==========================
 def update_group_app(input_detais):
     #here programe show group_app_containt for user to choose from them 
@@ -138,10 +143,8 @@ def update_group_app(input_detais):
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
         exit
-    elif complet_update == 'N' or complet_update =='n':
-        update_details()
     else:
-        exit
+        update_details()
 
 #=======================update_date_app==========================
 def update_date_app(input_details):
@@ -160,7 +163,6 @@ def update_date_app(input_details):
         update_details()
     else:
         exit
-
 #=======================update_time_app==========================
 def update_time_app(input_details):
     if input_details in store_group_details:
@@ -175,7 +177,20 @@ def update_time_app(input_details):
         exit
     else:
         update_details()
-
+#=======================update_group_name==========================
+def update_group_app_name(input_details):
+    if input_details in store_group_details:
+        del store_group_details ['group name']
+        print (store_group_details)
+        group_app_name()
+        print (store_group_details)
+         # complet update
+    complet_update = input ("did you finish update?[Y/N] ")
+    if complet_update == 'Y' or complet_update == 'y':
+        print ("your update store successfully")
+        exit
+    else:
+        update_details()
 #=======================end=======================================
 
 if __name__ == "__main__":
@@ -185,11 +200,10 @@ if __name__ == "__main__":
     print(get_app( input_group)) #'app_group1'
     print(store_group_details,"store_group_details") # store_group_details 
 
-    
     # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     get_date()
     print(store_group_details,"store_group_details") # store_group_details 
-
+    
     # inputTime = input("Enter the date in format 'HH:MM' : ")
     get_time()
     print(store_group_details,"store_group_details")
@@ -202,5 +216,3 @@ if __name__ == "__main__":
     summary_group = str(input("if you want see app group detalis pleas enter summary "))
     summary_details (summary_group)
     print("")
-
-
