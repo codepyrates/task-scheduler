@@ -33,4 +33,6 @@ class RemindersHandler:
                 return
             else:
                 print("Please enter a valid option.")
+    def save_to_server(self):
+        self.reminders.to_csv(self.path, header=True, index=False, mode='w')
         
