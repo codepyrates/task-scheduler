@@ -11,3 +11,7 @@ class RemindersHandler:
         self.update_next_reminder()
     def sort_reminders(self):
         self.reminders.sort_values('time', inplace=True, ignore_index=True,  ascending=True)
+    def update_next_reminder(self):
+        self.next_reminder['time'] = str(self.reminders.iloc[0]['time'].time())
+        self.next_reminder['date'] = str(self.reminders.iloc[0]['time'].date())
+        self.next_reminder['message'] = self.reminders.iloc[0]['message']
