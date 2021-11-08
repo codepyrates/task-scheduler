@@ -32,3 +32,10 @@ def test_sort_reminders(reminder_handler):
     reminder_handler.sort_reminders()
     actual = reminder_handler.reminders.iloc[0].message
     assert actual == expected
+    
+def test_update_next_reminder(reminder_handler):
+    expected = "First reminder"
+    reminder_handler.sort_reminders()
+    reminder_handler.update_next_reminder()
+    actual = reminder_handler.next_reminder['message']
+    assert actual == expected
