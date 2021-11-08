@@ -21,5 +21,5 @@ def test_delete_reminder_by_value_of_remaining_reminders(reminder_handler):
     assert actual == expected
     
 def  test_delete_reminder_scenario_1(reminder_handler):
-    diffs = reminder_mocker(reminder_handler.start, path="tests/test_reminders/test_delete_reminder/delete_reminder_scenario_1.txt")
+    diffs = reminder_mocker(reminder_handler.start, path="tests/test_reminders/test_reminders_delete_reminders/delete_reminder_scenario_1.txt")
     assert not diffs, diffs

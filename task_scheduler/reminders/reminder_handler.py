@@ -33,4 +33,7 @@ class RemindersHandler:
                 return
             else:
                 print("Please enter a valid option.")
-        
+    def delete_reminder(self, index):
+        self.reminders.drop(index, inplace=True)
+        self.reminders.reset_index(drop=True, inplace=True)
+        self.sort_reminders()  
