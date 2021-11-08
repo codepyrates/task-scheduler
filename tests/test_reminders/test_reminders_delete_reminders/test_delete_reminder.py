@@ -7,6 +7,10 @@ def reminder_handler():
     rmh = RemindersHandler("./tests/test_reminders/reminder.csv")
     return rmh
 
-def  test_delete_reminder_scenario_1(reminder_handler):
-    diffs = reminder_mocker(reminder_handler.start, path="tests/test_reminders/test_delete_reminder/delete_reminder_scenario_1.txt")
-    assert not diffs, diffs
+def  test_delete_reminder_by_number_of_remaining_reminders(reminder_handler):
+    expected = 1
+    reminder_handler.delete_reminder(1)
+    actual = len(reminder_handler.reminders)
+    assert actual == expected
+    
+    
