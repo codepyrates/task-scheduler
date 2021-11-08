@@ -1,12 +1,13 @@
 import numpy as np
 import pytest
+from task_scheduler.reminder.reminder_handler import RemindersHandler
 
 @pytest.fixture
 def reminder_handler():
-    rmh = RemindersHandler("tests/test_reminder/reminder.csv")
+    rmh = RemindersHandler("./tests/test_reminders/reminder.csv")
     return rmh
 def test_initializing_a_reminder_handler_instance(reminder_handler):
-    expected = "ReminderHandler"
+    expected = "RemindersHandler"
     actual = reminder_handler.__class__.__name__
     assert actual == expected    
 
@@ -21,7 +22,7 @@ def test_number_of_columns_in_reminders_instance_variable(reminder_handler):
     assert actual == expected
     
 def test_dtype_of_time_column_reminders_instance_variable_is_datetime(reminder_handler):
-    expected = np.datetime64
+    expected = np.dtype('<M8[ns]')
     actual = reminder_handler.reminders.time.dtype
     assert actual == expected
     
