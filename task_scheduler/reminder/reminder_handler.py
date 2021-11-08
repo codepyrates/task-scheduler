@@ -24,7 +24,11 @@ class RemindersHandler:
         self.reminders.drop(index, inplace=True)
         self.reminders.reset_index(drop=True, inplace=True)
         self.sort_reminders()
-        
+    def handle_delete(self):
+        print("Enter the index of the reminder you want to delete:")
+        idx = input("➤➤➤   ")
+        self.delete_reminder(int(idx))
+        print("Reminder has been deleted successfully!") 
     def start(self):
         time.sleep(1)
         print("Welcome to Reminders ⏰")
