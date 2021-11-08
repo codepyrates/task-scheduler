@@ -29,9 +29,9 @@ def get_app( app_type):
             return group['app']
     return None
 
-
+#=======================get date part=============================
 def get_date ():
-    inputDate = input("Enter the date in format 'dd/mm/yy' : ")
+    inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     try:
         inputDate2 = datetime.datetime.strptime(inputDate,"%d-%m-%Y").date()  
         # now we have to store new date in list
@@ -45,6 +45,24 @@ def get_date ():
             exit
         else:
             get_date( inputDate)
+#=======================get time part=============================
+def get_time():
+    inputTime = input("Enter the date in format 'HH:MM' : ")
+    try:
+        inputTimes =datetime.datetime.strptime(inputTime, '%H:%M').time()
+        # print('Time:', inputTime)
+        # print('Date-time:', inputTime)
+        store_group_details["Time"]= str(inputTimes)
+
+        
+    except:
+        print ("time not match with the formela try it again or type quite ")
+        inputTime = input("Enter the date in format '%H:%M' : ")
+        if inputTime == "quit":
+            exit
+        else:
+            get_time( inputTime)
+
 
 
 #=======================end=======================================
@@ -60,4 +78,8 @@ if __name__ == "__main__":
     # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     get_date()
     print(store_group_details,"store_group_details") # store_group_details 
+
+    # inputTime = input("Enter the date in format 'HH:MM' : ")
+    get_time()
+    print(store_group_details,"store_group_details")
 
