@@ -141,6 +141,23 @@ def update_group_app(input_detais):
     else:
         update_details()
 
+#=======================update_date_app==========================
+def update_date_app(input_details):
+    if input_details in store_group_details:
+        # print (True)
+        del store_group_details ["Date"]
+        print (store_group_details)
+        get_date ()
+        print (store_group_details)
+        # complet update
+    complet_update = input ("did you finish update?[Y/N] ")
+    if complet_update == 'Y' or complet_update == 'y':
+        print ("your update store successfully")
+        exit
+    elif complet_update == 'N' or complet_update =='n':
+        update_details()
+    else:
+        exit
 
 #=======================end=======================================
 
