@@ -33,4 +33,7 @@ class RemindersHandler:
                 return
             else:
                 print("Please enter a valid option.")
-        
+    def add_reminder(self, time, message):
+        self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
+        self.sort_reminders()
+        self.update_next_reminder()
