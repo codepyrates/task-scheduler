@@ -21,3 +21,8 @@ def test_number_of_columns_in_reminders_instance_variable(reminder_handler):
     expected = 2
     actual = len(reminder_handler.reminders.columns)
     assert actual == expected
+    
+def test_dtype_of_time_column_reminders_instance_variable_is_datetime(reminder_handler):
+    expected = np.dtype('<M8[ns]')
+    actual = reminder_handler.reminders.time.dtype
+    assert actual == expected
