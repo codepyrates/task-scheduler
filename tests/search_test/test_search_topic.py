@@ -1,7 +1,6 @@
 import pytest
 from flo import mocker
-from task_scheduler.topic_search.websites_to_search import britannica_search ,wikipedia_search,citizendium_search
-
+from task_scheduler.topic_search.websites_to_search import *
 pytestmark = [pytest.mark.version_2]
 
 
@@ -18,4 +17,6 @@ def test_citizendium_search():
     assert not diffs, diffs
 
 
-    
+def test_list_of_websites():
+    diffs = mocker(list_of_websites, path="tests/search_test/test_list_of_websites.txt")
+    assert not diffs, diffs    
