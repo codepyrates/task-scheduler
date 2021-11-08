@@ -8,5 +8,5 @@ def reminder_handler():
     return rmh
 
 def test_view_reminder_scenario_1(reminder_handler):
-    diffs = reminder_mocker(reminder_handler.start, path="view_reminders.txt")
+    diffs = reminder_mocker(reminder_handler.view_reminders, path="view_reminders.txt")
     assert not diffs, diffs
