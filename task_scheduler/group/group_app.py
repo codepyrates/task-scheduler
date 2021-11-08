@@ -92,6 +92,17 @@ def update_details():# here the user choose which feild he want to update
             print ("your input dose not exist? ")
             update_details()
 
+#=======================update all feature part===================
+def update_all_feature(input_details):
+    if input_details == "app_group1" or input_details == "app_group2" or input_details == "app_group3":
+    # if the user enter one of this group  "app_group1" or input_details  or  "app_group3" he will call function update_group_app(input_details) and send input_details
+        update_group_app(input_details)
+    elif input_details == "Date":
+        update_date_app(input_details)
+    elif input_details == "Time":
+        update_time_app(input_details)
+    elif input_details == "group name":
+        update_group_app_name(input_details)
 
 #=======================end=======================================
 
