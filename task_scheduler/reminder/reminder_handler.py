@@ -13,3 +13,5 @@ class RemindersHandler:
         self.next_reminder['time'] = str(self.reminders.iloc[0]['time'].time())
         self.next_reminder['date'] = str(self.reminders.iloc[0]['time'].date())
         self.next_reminder['message'] = self.reminders.iloc[0]['message']
+        
+    
