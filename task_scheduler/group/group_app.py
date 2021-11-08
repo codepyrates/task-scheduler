@@ -81,6 +81,17 @@ def summary_details(summary_group):
         elif update_check == "N" or update_check == "n":
                     print ("no")
 
+#=======================update part=============================
+def update_details():# here the user choose which feild he want to update
+    input_details = input("please select which field you want to change: ")
+    for item in store_group_details: #check if feild exist in decionary 
+        if item == input_details:  # removed ['type']
+            update_all_feature(input_details) # send input_details to update_all_feature() function
+            break
+        else: 
+            print ("your input dose not exist? ")
+            update_details()
+
 
 #=======================end=======================================
 
