@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime as dt
+import time
 
 class RemindersHandler:
     def __init__(self, path):
@@ -15,3 +16,10 @@ class RemindersHandler:
         self.next_reminder['time'] = str(self.reminders.iloc[0]['time'].time())
         self.next_reminder['date'] = str(self.reminders.iloc[0]['time'].date())
         self.next_reminder['message'] = self.reminders.iloc[0]['message']
+    def view_reminders(self):
+        records = list(self.reminders.to_records(index = True))
+        for index, time, message in records:
+            t = pd.to_datetime(str(time))
+            print(f"{index}. Time: {t.time()}\n   Date: {t.date()}\n   Message: {message}")
+
+        
