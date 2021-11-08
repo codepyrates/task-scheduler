@@ -14,3 +14,9 @@ def  test_delete_reminder_by_number_of_remaining_reminders(reminder_handler):
     assert actual == expected
     
     
+def test_delete_reminder_by_value_of_remaining_reminders(reminder_handler):
+    expected = "First reminder"
+    reminder_handler.delete_reminder(1)
+    actual = reminder_handler.reminders.iloc[0]['message']
+    assert actual == expected
+    
