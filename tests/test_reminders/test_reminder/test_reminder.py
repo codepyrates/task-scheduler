@@ -10,5 +10,9 @@ def test_number_of_rows_in_reminders_instance_variable():
     actual = len(rmh.reminders)
     assert actual == expected
     
-
+def test_number_of_columns_in_reminders_instance_variable():
+    expected = 2
+    rmh = ReminderHandler("tests/test_reminder/reminder.csv")
+    actual = len(rmh.reminders.columns)
+    assert actual == expected
     
