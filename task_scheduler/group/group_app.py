@@ -9,6 +9,7 @@ store_group_details = {}
     # global store_group_details
     # store_group_details.append(group['app'])
 #=======================print sentense part=============================
+# in this function contan all welcoming msg and satrt ask user to choose which app group want
 def print_instruction():
     print("Anton say: select your group app you would open it:")
     print("*****************************************")
@@ -23,7 +24,7 @@ def print_instruction():
     print("Anton says: pleas select group name as shown above📣📣")
 
 #=======================get app part=============================
-           
+#here user inter desire app group and save it in store_group_details
 def get_app( app_type):
     group_list = [{'type': "app_group1", 'app': ['vs code', 'notepad', 'google', ]},
               {'type': 'app_group2', 'app': ['slack', ' Discord', 'zoom', 'vs code', ]},
@@ -34,7 +35,7 @@ def get_app( app_type):
             return group['app']
     return None
 #=======================get date part=============================
-
+#here user inter desire date and save it in store_group_details
 def get_date ():
     inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     try:
@@ -51,6 +52,7 @@ def get_date ():
         else:
             get_date( inputDate)
 #=======================get time part=============================
+#here user inter desire time and save it in store_group_details
 def get_time():
     inputTime = input("Enter the date in format 'HH:MM' : ")
     try:
@@ -70,6 +72,7 @@ def get_time():
 
 
 #=======================group app name part=============================
+#here user inter desire app name and save it in store_group_details
 def group_app_name ():
     gname = input("Please enter group_app name ")
     store_group_details["group name"]= gname
@@ -93,9 +96,9 @@ def update_details():# here the user choose which feild he want to update
         if item == input_details:  # removed ['type']
             update_all_feature(input_details) # send input_details to update_all_feature() function
             break
-        else: 
-            print ("your input dose not exist? ")
-            update_details()
+    else: 
+        print ("your input dose not exist? ")
+        update_details()
 
 #=======================update all feature part===================
 def update_all_feature(input_details):
