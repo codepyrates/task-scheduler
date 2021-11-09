@@ -7,8 +7,11 @@ authors = ["HamzaAhmad97 <h.radiahmad@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 pytest = "^6.2.5"
+art = "^5.3"
+termcolor = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
