@@ -25,4 +25,6 @@ def welcome():
     time.sleep(0.25)
     print("\n")
 
+def reminder_thread():
+    pass
 
