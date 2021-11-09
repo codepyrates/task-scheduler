@@ -7,6 +7,8 @@ authors = ["HamzaAhmad97 <h.radiahmad@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 pynput = "^1.7.4"
+terminaltables = "^3.1.0"
+termcolor = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 
