@@ -31,6 +31,7 @@ class RemindersHandler:
             pmt = input("➤➤➤   ")
             if pmt == "q":
                 return
+
             elif pmt == "u":
                 self.handle_update()
             else:
@@ -56,3 +57,39 @@ class RemindersHandler:
         msg = input("➤➤➤   ")
         self.update_reminder(int(idx), f"{dt} {tm}", msg)
         print("Reminder has been updated successfully!")
+
+            elif pmt == "a":
+                self.handle_add()
+            else:
+                print("Please enter a valid option.")
+    def add_reminder(self, time, message):
+        self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
+        self.sort_reminders()
+        self.update_next_reminder()
+    def handle_add(self):
+        print("Enter time for new reminder, should follow HH:MM:SS, and in 24 hrs. format: (c) to cancel")
+        tm = input("➤➤➤   ")
+        if tm == "c": return "c"
+        print("Enter date for new reminder, should follow YYYY-MM-DD: (c) to cancel")
+        dt = input("➤➤➤   ")
+        if dt == "c": return "c"
+        print("Enter message for new reminder, leave empty if no message is needed: (c) to cancel")
+        msg = input("➤➤➤   ")
+        if msg == "c": return "c"
+        self.add_reminder(f"{dt} {tm}", msg)
+        print("Your new reminder has been saved successfully!")
+
+            elif pmt == "d":
+                self.handle_delete()
+            else:
+                print("Please enter a valid option.")
+    def delete_reminder(self, index):
+        self.reminders.drop(index, inplace=True)
+        self.reminders.reset_index(drop=True, inplace=True)
+        self.sort_reminders()  
+    def handle_delete(self):
+        print("Enter the index of the reminder you want to delete:")
+        idx = input("➤➤➤   ")
+        self.delete_reminder(int(idx))
+        print("Reminder has been deleted successfully!")
+
