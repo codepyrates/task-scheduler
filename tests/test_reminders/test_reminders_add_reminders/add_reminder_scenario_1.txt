@@ -1,0 +1,26 @@
+Welcome to Reminders ⏰
+0. Time: 22:22:22
+   Date: 2021-11-08
+   Message: First reminder
+1. Time: 11:11:11
+   Date: 2021-11-09
+   Message: Second reminder
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
+➤➤➤   a
+Enter time for new reminder, should follow HH:MM:SS, and in 24 hrs. format: (c) to cancel
+➤➤➤   22:22:22
+Enter date for new reminder, should follow YYYY-MM-DD: (c) to cancel
+➤➤➤   2022-12-23
+Enter message for new reminder, leave empty if no message is needed: (c) to cancel
+➤➤➤   This is my birthday
+Your new reminder has been saved successfully!
+0. Time: 22:22:22
+   Date: 2021-11-08
+   Message: First reminder
+1. Time: 11:11:11
+   Date: 2021-11-09
+   Message: Second reminder
+2. Time: 22:22:22
+   Date: 2022-12-23
+   Message: This is my birthday
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
