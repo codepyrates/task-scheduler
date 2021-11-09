@@ -46,15 +46,15 @@ def get_date ():
                 
     except:
         print ("enter date not match with the formela try it again or type quite ")
-        inputDate = input("Enter the date in format 'dd-mm-yy' : ")
+        # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
         if inputDate == "quit":
             exit
         else:
-            get_date( inputDate)
+            get_date()
 #=======================get time part=============================
 #here user inter desire time and save it in store_group_details
 def get_time():
-    inputTime = input("Enter the date in format 'HH:MM' : ")
+    inputTime = input("Enter the time in format 'HH:MM' : ")
     try:
         inputTimes =datetime.datetime.strptime(inputTime, '%H:%M').time()
         # print('Time:', inputTime)
@@ -64,7 +64,7 @@ def get_time():
         
     except:
         print ("time not match with the formela try it again or type quite ")
-        inputTime = input("Enter the date in format '%H:%M' : ")
+        inputTime = input("Enter the time in format '%H:%M' : ")
         if inputTime == "quit":
             exit
         else:
@@ -99,6 +99,8 @@ def update_details():# here the user choose which feild he want to update
     else: 
         print ("your input dose not exist? ")
         update_details()
+        print ("your input dose not exist? ")
+
 
 #=======================update all feature part===================
 def update_all_feature(input_details):
@@ -198,10 +200,10 @@ def update_group_app_name(input_details):
 
 if __name__ == "__main__":
     
-    print_instruction()
-    input_group = input(">>")
-    print(get_app( input_group)) #'app_group1'
-    print(store_group_details,"store_group_details") # store_group_details 
+    # print_instruction()
+    # input_group = input(">>")
+    # print(get_app( input_group)) #'app_group1'
+    # print(store_group_details,"store_group_details") # store_group_details 
 
     # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     get_date()
@@ -209,11 +211,11 @@ if __name__ == "__main__":
     
     # inputTime = input("Enter the date in format 'HH:MM' : ")
     get_time()
-    print(store_group_details,"store_group_details")
+    # print(store_group_details,"store_group_details")
 
-    # # gname = input("Please enter group_app name ")
-    group_app_name()
-    print(store_group_details,"store_group_details")
+    # # # gname = input("Please enter group_app name ")
+    # group_app_name()
+    # print(store_group_details,"store_group_details")
 
     print("********************************************")
     summary_group = str(input("if you want see app group detalis pleas enter summary "))
