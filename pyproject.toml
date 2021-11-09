@@ -5,10 +5,20 @@ description = ""
 authors = ["HamzaAhmad97 <h.radiahmad@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9,<3.11"
 pytest = "^6.2.5"
+<<<<<<< HEAD
 art = "^5.3"
 termcolor = "^1.1.0"
+=======
+requests = "^2.26.0"
+beautifulsoup4 = "^4.10.0"
+
+coverage = "^6.1.1"
+numpy = "^1.21.4"
+pandas = "^1.3.4"
+
+>>>>>>> 0b348f0e11a15d5ce6d03db1ca614d898af1c8e7
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.6.0"
