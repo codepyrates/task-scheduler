@@ -1,5 +1,4 @@
-from websites_to_search import list_of_websites
-
+from task_scheduler.topic_search.websites_to_search import list_of_websites
 def search_main():
     # Start Search Option scenario
     print("Welcome to search, start by typing something to search for.")
