@@ -64,17 +64,17 @@ def get_time():
         
     except:
         print ("time not match with the formela try it again or type quite ")
-        inputTime = input("Enter the time in format '%H:%M' : ")
+        # inputTime = input("Enter the time in format '%H:%M' : ")
         if inputTime == "quit":
             exit()
         else:
-            get_time( inputTime)
+            get_time()
 
 
 #=======================group app name part=============================
 #here user inter desire app name and save it in store_group_details
 def group_app_name ():
-    gname = input("Please enter group_app name ")
+    gname = input("Please enter group_app name: ")
     store_group_details["group name"]= gname
 #=======================summary part=============================
 #here will show summary for user and he can update the details
@@ -113,6 +113,13 @@ def update_all_feature(input_details):
         update_time_app(input_details)
     elif input_details == "group name":
         update_group_app_name(input_details)
+#=======================complet function==========================
+def complet_update_function(complet_update):
+    if complet_update == 'Y' or complet_update == 'y':
+        print ("your update store successfully")
+        exit()
+    else:
+        update_details()
 #=======================update_group_app==========================
 def update_group_app(input_detais):
     #here programe show group_app_containt for user to choose from them 
@@ -144,80 +151,64 @@ def update_group_app(input_detais):
         store_group_details[f'{update_group_app}'] = saved_group_app
         print (store_group_details)
         # complet update
-    complet_update = input ("did you finish update?[Y/N] ")
-    if complet_update == 'Y' or complet_update == 'y':
-        print ("your update store successfully")
-        exit()
-    else:
-        update_details()
+    complet_update = input ("did you finish update[Y/N]? ")
+    complet_update_function(complet_update)
+    
 
 #=======================update_date_app==========================
 def update_date_app(input_details):
     if input_details in store_group_details:
         # print (True)
         del store_group_details ["Date"]
-        print (store_group_details)
+        # print (store_group_details)
         get_date ()
         print (store_group_details)
         # complet update
     complet_update = input ("did you finish update?[Y/N] ")
-    if complet_update == 'Y' or complet_update == 'y':
-        print ("your update store successfully")
-        exit()
-    elif complet_update == 'N' or complet_update =='n':
-        update_details()
-    else:
-        exit()
+    complet_update_function(complet_update)
+    
 #=======================update_time_app==========================
 def update_time_app(input_details):
     if input_details in store_group_details:
         del store_group_details ['Time']
-        print (store_group_details)
+        # print (store_group_details)
         get_time()
         print (store_group_details)
          # complet update
     complet_update = input ("did you finish update?[Y/N] ")
-    if complet_update == 'Y' or complet_update == 'y':
-        print ("your update store successfully")
-        exit()
-    else:
-        update_details()
+    complet_update_function(complet_update)
 #=======================update_group_name==========================
 def update_group_app_name(input_details):
     if input_details in store_group_details:
         del store_group_details ['group name']
-        print (store_group_details)
+        # print (store_group_details)
         group_app_name()
         print (store_group_details)
          # complet update
     complet_update = input ("did you finish update?[Y/N] ")
-    if complet_update == 'Y' or complet_update == 'y':
-        print ("your update store successfully")
-        exit()
-    else:
-        update_details()
+    complet_update_function(complet_update)
 #=======================end=======================================
 
 if __name__ == "__main__":
     
-    # print_instruction()
-    # input_group = input(">>")
-    # print(get_app( input_group)) #'app_group1'
+    print_instruction()
+    input_group = input(">>")
+    print(get_app( input_group)) #'app_group1'
     # print(store_group_details,"store_group_details") # store_group_details 
 
     # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
     get_date()
-    print(store_group_details,"store_group_details") # store_group_details 
+    # print(store_group_details,"store_group_details") # store_group_details 
     
     # inputTime = input("Enter the date in format 'HH:MM' : ")
     get_time()
     # print(store_group_details,"store_group_details")
 
-    # # # gname = input("Please enter group_app name ")
-    # group_app_name()
-    # print(store_group_details,"store_group_details")
+    # # gname = input("Please enter group_app name ")
+    group_app_name()
+    print(store_group_details,"store_group_details")
 
     print("********************************************")
-    summary_group = str(input("if you want see app group detalis pleas enter summary "))
+    summary_group = str(input("if you want see app group detalis pleas enter summary: "))
     summary_details (summary_group)
-    print("")
+    # print("")
