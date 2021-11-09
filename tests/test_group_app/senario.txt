@@ -1,0 +1,20 @@
+Anton say: select your group app you would open it:
+*****************************************
+Select From the folowing group app:
+
+    app_group1 ==> [vs code, notepad, google]
+    app_group2 ==> [slack,  Discord, zoom, vs code]
+    app_group3 ==> [calculater, google]
+      
+    
+Anton says: pleas select group name as shown above📣📣
+>>> app_group2
+Enter the date in format 'dd-mm-yyyy':
+>>> 12-3-2002
+Enter the time in format 'HH:MM':
+>>> 12:12
+Please enter group_app name:
+>>> test
+********************************************
+if you want see app group detalis pleas enter summary: 
+>>> f

@@ -1,0 +1,31 @@
+Anton say: select your group app you would open it:
+*****************************************
+Select From the folowing group app:
+
+    app_group1 ==> [vs code, notepad, google]
+    app_group2 ==> [slack,  Discord, zoom, vs code]
+    app_group3 ==> [calculater, google]
+      
+    
+Anton says: pleas select group name as shown above📣📣
+>>> app_group3
+Enter the date in format 'dd-mm-yyyy':
+>>> 12-2-2022
+Enter the time in format 'HH:MM':
+>>> 12:2
+Please enter group_app name:
+>>> ree
+********************************************
+if you want see app group detalis pleas enter summary: 
+>>> n
+please select which field you want to change
+>>> group name
+Please enter group_app name:
+>>> wewe
+app_group3 : calculater google
+Date : 2022-02-12
+Time : 12:02:00
+group name : wewe
+did you finish update?[Y/N]
+>>> y
+your update store successfully
