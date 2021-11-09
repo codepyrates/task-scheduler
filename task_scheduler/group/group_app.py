@@ -37,7 +37,7 @@ def get_app( app_type):
 #=======================get date part=============================
 #here user inter desire date and save it in store_group_details
 def get_date ():
-    inputDate = input("Enter the date in format 'dd-mm-yy' : ")
+    inputDate = input("Enter the date in format 'dd-mm-yyyy' : ")
     try:
         inputDate2 = datetime.datetime.strptime(inputDate,"%d-%m-%Y").date()  
         # now we have to store new date in list
@@ -48,7 +48,7 @@ def get_date ():
         print ("enter date not match with the formela try it again or type quite ")
         # inputDate = input("Enter the date in format 'dd-mm-yy' : ")
         if inputDate == "quit":
-            exit
+            exit()
         else:
             get_date()
 #=======================get time part=============================
@@ -66,7 +66,7 @@ def get_time():
         print ("time not match with the formela try it again or type quite ")
         inputTime = input("Enter the time in format '%H:%M' : ")
         if inputTime == "quit":
-            exit
+            exit()
         else:
             get_time( inputTime)
 
@@ -147,7 +147,7 @@ def update_group_app(input_detais):
     complet_update = input ("did you finish update?[Y/N] ")
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
-        exit
+        exit()
     else:
         update_details()
 
@@ -163,11 +163,11 @@ def update_date_app(input_details):
     complet_update = input ("did you finish update?[Y/N] ")
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
-        exit
+        exit()
     elif complet_update == 'N' or complet_update =='n':
         update_details()
     else:
-        exit
+        exit()
 #=======================update_time_app==========================
 def update_time_app(input_details):
     if input_details in store_group_details:
@@ -179,7 +179,7 @@ def update_time_app(input_details):
     complet_update = input ("did you finish update?[Y/N] ")
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
-        exit
+        exit()
     else:
         update_details()
 #=======================update_group_name==========================
@@ -193,7 +193,7 @@ def update_group_app_name(input_details):
     complet_update = input ("did you finish update?[Y/N] ")
     if complet_update == 'Y' or complet_update == 'y':
         print ("your update store successfully")
-        exit
+        exit()
     else:
         update_details()
 #=======================end=======================================
