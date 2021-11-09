@@ -39,3 +39,14 @@ def test_update_next_reminder(reminder_handler):
     actual = reminder_handler.next_reminder['message']
     assert actual == expected
     
+def test_update_reminder(reminder_handler):
+    expected = "2021-11-08 11:11:11"
+    reminder_handler.update_reminder(0, "2021-11-08 11:11:11", "new message")
+    actual = str(reminder_handler.reminders.iloc[0]['time'])
+    assert actual == expected
+
+def test_add_reminder(reminder_handler):
+    expected = "latest reminder"
+    reminder_handler.add_reminder("2022-12-31 22:22:22", "latest reminder")
+    actual = reminder_handler.reminders.iloc[2]['message']
+    assert actual == expected

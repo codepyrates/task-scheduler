@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+from datetime import datetime as dt
 class RemindersHandler:
     def __init__(self, path):
         self.path = path
@@ -10,6 +11,10 @@ class RemindersHandler:
         self.update_next_reminder()
     def sort_reminders(self):
         self.reminders.sort_values('time', inplace=True, ignore_index=True,  ascending=True)
+    def add_reminder(self, time, message):
+        self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
+        self.sort_reminders()
+        self.update_next_reminder()
     def update_next_reminder(self):
         self.next_reminder['time'] = str(self.reminders.iloc[0]['time'].time())
         self.next_reminder['date'] = str(self.reminders.iloc[0]['time'].date())
@@ -23,6 +28,10 @@ class RemindersHandler:
     def delete_reminder(self, index):
         self.reminders.drop(index, inplace=True)
         self.reminders.reset_index(drop=True, inplace=True)
+        self.sort_reminders()
+    def update_reminder(self, index, newtime, newmessage):
+        self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
+        self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
         self.sort_reminders()
     def handle_delete(self):
         print("Enter the index of the reminder you want to delete:")
