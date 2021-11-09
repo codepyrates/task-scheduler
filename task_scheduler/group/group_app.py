@@ -65,7 +65,7 @@ def summary_details(summary_group):
         if update_check == "Y" or update_check == "y":
             update_details()
         elif update_check == "N" or update_check == "n":
-            print("no")
+            print(store_group_details)
     else:
         update_details()
 

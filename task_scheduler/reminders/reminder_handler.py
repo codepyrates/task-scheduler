@@ -106,6 +106,8 @@ class RemindersHandler:
         self.add_reminder(f"{dt} {tm}", msg)
         print("Your new reminder has been saved successfully!")
 
+    def add_app_group(self,group):
+        pass
  
     def delete_reminder(self, index):
         self.reminders.drop(index, inplace=True)

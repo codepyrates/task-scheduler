@@ -5,6 +5,10 @@ import threading
 import subprocess
 import os
 import webbrowser
+from task_scheduler.reminders.reminder_handler import RemindersHandler
+from task_scheduler.group.group_app import main_scenario
+from task_scheduler.notes.notes import NotesHandler,Notes
+os.system("clear")
 def welcome():
     welcome = "Welcome, this is"
     welcome = colored(welcome, 'cyan', attrs=['bold'])
@@ -34,15 +38,30 @@ def entertainment_thread():
 
 def main():
     welcome()
-    reminder_th = threading.Thread(target=reminder_thread, daemon=True)
+    nh = NotesHandler()
+    rmh = RemindersHandler("./reminders.csv")
+    reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
     entertainment_th = threading.Thread(
         target=entertainment_thread, daemon=True)
     reminder_th.start()
     entertainment_th.start()
     while True:
-        pass
+        os.system("clear")
+        print("Options { r : reminders    a : app grouping    s : search   n : notes    e : entertainment    q : quit}")
+        pmt = input("➤➤➤   ")
+        if pmt == "q":
+            print("See you soon.")
+            exit()
+        elif pmt == "r":
+            rmh.start()
+        elif pmt == "a":
+            main_scenario()
+        elif pmt == "n":
+            nh.start()
+        else:
+            print("Please enter a valid option.")
 
 if __name__ == "__main__":
     
-    #main()
+    main()
     
