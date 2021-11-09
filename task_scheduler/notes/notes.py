@@ -17,13 +17,12 @@ class NotesHandler:
 
     def __init__(self):
 
-        self.notes = pd.read_csv('./task_scheduler/notes.csv')
-
+        self.notes = pd.read_csv('./task_scheduler/notes/notes.csv')
     def add_note(self, title, content):
 
         """ Function to add notes in the notes page """
 
-        self.notes = self.notes.append({"Title": title, "Content": content}, ignore_index=True)
+        self.notes = self.notes.append({"title": title, "content": content}, ignore_index=True)
 
     def view_notes(self):
 
@@ -45,48 +44,50 @@ class NotesHandler:
         self.notes.iloc[index]['content'] = newcontent
 
     def save_note(self):
-        self.notes.to_csv('./task_scheduler/notes.csv', header=True, index = False, mode='w')
+        self.notes.to_csv('./task_scheduler/notes/notes.csv', header=True, index = False, mode='w')
 
+    def start_notes(self):
+        while True:
+
+            print('************** Notes Page ****************')
+            print('Please choose one of the following to do')
+
+            choice = input("a: Add new note, v: View notes, d: Delete note, m: Modify note, s: Save note, q: Quit,  >>> ")
+
+            if choice == "q": break
+
+            elif choice == "a":
+                title = input("Title of the new note >>> ")
+                content = input("Content of the new note >>> ")
+                self.add_note(title, content)
+                print('Note added successfully!')
+
+            elif choice == "v":
+                handler.view_notes()
+
+            elif choice == "d":
+                num = input("Enter the number of the note you want to delete >>> ")
+                self.delete_note(int(num))
+                print(f"Note number {num} has been deleted successfully!")
+
+            elif choice == 'm':
+                index = int(input("enter the index of the note >>>"))
+                newtitle = input(f"enter the new title >>>")
+                newcontent = input(f"enter the new content >>>")
+                self.modify_note(index, newtitle, newcontent)
+                print(f"note number {index} has been modified successfully!" )
+            
+            elif choice == "s":
+                self.save_note()
+                print("uploading ...")
+                time.sleep(2)
+                print("notes have been successfully uploaded to the server!")
+            
+            else:
+                print("Please choose one of the available choices")
 
 if __name__ == "__main__":
 
     handler = NotesHandler()
+    handler.start_notes()
     
-    while True:
-
-        print('************** Notes Page ****************')
-        print('Please choose one of the following to do')
-
-        choice = input("a: Add new note, v: View notes, d: Delete note, m: Modify note, q: Quit,  >>> ")
-
-        if choice == "q": break
-
-        elif choice == "a":
-            title = input("Title of the new note >>> ")
-            content = input("Content of the new note >>> ")
-            handler.add_note(title, content)
-            print('Note added successfully!')
-
-        elif choice == "v":
-            handler.view_notes()
-
-        elif choice == "d":
-            num = input("Enter the number of the note you want to delete >>> ")
-            handler.delete_note(int(num))
-            print(f"Note number {num} has been deleted successfully!")
-
-        elif choice == 'm':
-            index = int(input("enter the index of the note >>>"))
-            newtitle = input(f"enter the new title >>>")
-            newcontent = input(f"enter the new content >>>")
-            handler.modify_note(index, newtitle, newcontent)
-            print(f"note number {index} has been modified successfully!" )
-        
-        elif choice == "s":
-            handler.save_note()
-            print("uploading ...")
-            time.sleep(2)
-            print("notes have been successfully uploaded to the server!")
-        
-        else:
-            print("Please choose one of the available choices")

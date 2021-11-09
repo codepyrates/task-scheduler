@@ -35,10 +35,8 @@ class RemindersHandler:
             pmt = input("➤➤➤   ")
             if pmt == "q":
                 return
-
             elif pmt == "u":
                 self.handle_update()
-            
             elif pmt == "a":
                 self.handle_add()
             elif pmt == "d":
@@ -48,9 +46,7 @@ class RemindersHandler:
 
     def save_to_server(self):
         self.reminders.to_csv(self.path, header=True, index=False, mode='w')
-        
-
-                
+    
     def update_reminder(self, index, newtime, newmessage):
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
         self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
@@ -72,7 +68,6 @@ class RemindersHandler:
         msg = input("➤➤➤   ")
         self.update_reminder(int(idx), f"{dt} {tm}", msg)
         print("Reminder has been updated successfully!")
-
 
     def get_next_reminder(self):
         return self.next_reminder    
@@ -123,3 +118,6 @@ class RemindersHandler:
         print("Reminder has been deleted successfully!")
 
 
+if __name__ == "__main__":
+    rmh = RemindersHandler("./reminders.csv")
+    rmh.start()
