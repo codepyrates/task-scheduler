@@ -30,3 +30,15 @@ def reminder_thread():
 
 def entertainment_thread():
     pass
+
+def main():
+    welcome()
+    reminder_th = threading.Thread(target=reminder_thread, daemon=True)
+    entertainment_th = threading.Thread(
+        target=entertainment_thread, daemon=True)
+    reminder_th.start()
+    entertainment_th.start()
+    while True:
+        pass
+
+main()
