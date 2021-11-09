@@ -5,8 +5,13 @@ description = ""
 authors = ["HamzaAhmad97 <h.radiahmad@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+
+python = "^3.9,<3.11"
 pytest = "^6.2.5"
+numpy = "^1.21.4"
+pandas = "^1.3.4"
+pynput = "^1.7.4"
+
 
 [tool.poetry.dev-dependencies]
 
