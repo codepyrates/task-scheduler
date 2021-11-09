@@ -1,6 +1,10 @@
 import pandas as pd
 from datetime import datetime as dt
 import time
+import tkinter as tk
+import os
+import time
+import threading
 
 class RemindersHandler:
     def __init__(self, path):
@@ -34,8 +38,14 @@ class RemindersHandler:
 
             elif pmt == "u":
                 self.handle_update()
+            
+            elif pmt == "a":
+                self.handle_add()
+            elif pmt == "d":
+                self.handle_delete()
             else:
                 print("Please enter a valid option.")
+                
     def update_reminder(self, index, newtime, newmessage):
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
         self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
@@ -58,10 +68,27 @@ class RemindersHandler:
         self.update_reminder(int(idx), f"{dt} {tm}", msg)
         print("Reminder has been updated successfully!")
 
-            elif pmt == "a":
-                self.handle_add()
-            else:
-                print("Please enter a valid option.")
+
+    def get_next_reminder(self):
+        return self.next_reminder    
+    def reminder_thread(self):
+        next_reminder = self.get_next_reminder()
+        while True:
+            time.sleep(1)
+            t = str(dt.now().replace(microsecond=0).time())
+            d = str(dt.now().replace(microsecond=0).date())
+            if next_reminder['time'] == t and next_reminder['date'] == d:
+                beep = lambda x: os.system("echo -n '\a';sleep 0.2;" * x)
+                beep(50)
+                window = tk.Tk()
+                greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
+                greeting.pack()
+                window.mainloop()
+                break
+    def start_reminder_thread(self):
+        reminder = threading.Thread(target=self.reminder_thread)
+        reminder.start()  
+
     def add_reminder(self, time, message):
         self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
         self.sort_reminders()
@@ -79,10 +106,7 @@ class RemindersHandler:
         self.add_reminder(f"{dt} {tm}", msg)
         print("Your new reminder has been saved successfully!")
 
-            elif pmt == "d":
-                self.handle_delete()
-            else:
-                print("Please enter a valid option.")
+ 
     def delete_reminder(self, index):
         self.reminders.drop(index, inplace=True)
         self.reminders.reset_index(drop=True, inplace=True)
