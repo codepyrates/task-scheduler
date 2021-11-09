@@ -2,8 +2,9 @@ from art import tprint
 from termcolor import colored
 import time
 import threading
-
-
+import subprocess
+import os
+import webbrowser
 def welcome():
     welcome = "Welcome, this is"
     welcome = colored(welcome, 'cyan', attrs=['bold'])
@@ -41,4 +42,7 @@ def main():
     while True:
         pass
 
-main()
+if __name__ == "__main__":
+    
+    #main()
+    

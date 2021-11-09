@@ -39,10 +39,10 @@ class RemindersHandler:
         self.delete_reminder(int(idx))
         print("Reminder has been deleted successfully!") 
     def start(self):
-        time.sleep(1)
+        time.sleep(0.5)
         print("Welcome to Reminders ⏰")
         while True:
-            time.sleep(1)
+            time.sleep(0.5)
             self.view_reminders()
             print("Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }")
             pmt = input("➤➤➤   ")
