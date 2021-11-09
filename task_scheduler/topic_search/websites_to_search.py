@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def wikipedia_search(topic , back = None):
+def wikipedia_search(topic = 'cat' , back = None):
     """
     this function is tack an topic(text) as an argument and return an
     article how descrip this topic from wikipedia
@@ -19,13 +19,13 @@ def wikipedia_search(topic , back = None):
     for i in citation:
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
-            print(i.text)
+            print(i.text.strip('\n'))
             break
         else :
             text += "m"
         
 
-    if  text != 's':
+    if  text == 'm':
         print("Please can you discripe exactly what you search about, Because no subject have this word alone")
         citation = soup.find_all('a')
         number_of_choices = 0
@@ -37,12 +37,13 @@ def wikipedia_search(topic , back = None):
                 list_of_choices.append(i.text)
                 if number_of_choices == 5 :
                     break
-        user_choices = int(input("Search >>>"))
+        user_choices = input("> ")
+        user_choices = int(user_choices)
         
         print(list_of_choices[user_choices - 1])
         wikipedia_search(list_of_choices[user_choices - 1] , topic)
 
-def britannica_search(topic):
+def britannica_search(topic ='animal' ):
     url = f"https://www.britannica.com/search?query={topic}"
     res = requests.get(url)
     html_text = res.text
@@ -52,8 +53,7 @@ def britannica_search(topic):
         print(i.findChildren("div" ,recursive = False )[0].text)
         break
 
-def citizendium_search(topic , counter = 0):
-    print(topic)
+def citizendium_search(topic = "fish" , counter = 0):
     """
     this function is tack an topic(text) as an argument and return an
     article how descrip this topic from citizendium
@@ -67,13 +67,13 @@ def citizendium_search(topic , counter = 0):
     for i in citation:
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
-            print(i.text)
+            print(i.text.strip('\n'))
             break
         else :
             text += "m"
         
 
-    if  text != 's':
+    if  text == 'm':
         
         new_res = requests.get(f"https://en.citizendium.org/wiki/Special:Search/{topic}")
         new_soup = BeautifulSoup(new_res.text, "html.parser")
@@ -100,16 +100,21 @@ def citizendium_search(topic , counter = 0):
         citizendium_search(list_of_choices[user_choices - 1] , counter)
 
 
-
-def list_of_websites(topic_search):
+def list_of_websites(topic_search = 'dog'):
+    
     print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_search} from Britannica.\n3.Article about {topic_search} from citizendium.")
-    website = int(input("Search >>>"))
-    if website == 1 :
+    prompt = input("> ").lower()
+    # website = '2'
+    if prompt == '1' :
         # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
         wikipedia_search(topic_search)
-    if website == 2 :
+    if prompt == '2' :
         # if the user choose 2 the britannica function will start to give him an article from britannica site.
         britannica_search(topic_search)
-    if website == 3 :
+    if prompt == '3' :
         # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
         citizendium_search(topic_search)
+
+
+
+
