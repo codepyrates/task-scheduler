@@ -1,3 +1,5 @@
+from websites_to_search import wikipedia_search
+
 # Start Search Option scenario
 print("Welcome to search, start by typing something to search for.")
 topic_search = input("Search >>>")
@@ -5,7 +7,7 @@ print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_s
 website = int(input("Search >>>"))
 if website == 1 :
     # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
-    # wikipedia_search(topic_search)
+    wikipedia_search(topic_search)
     pass
     
 if website == 2 :
