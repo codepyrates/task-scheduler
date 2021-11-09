@@ -28,3 +28,5 @@ def welcome():
 def reminder_thread():
     pass
 
+def entertainment_thread():
+    pass
