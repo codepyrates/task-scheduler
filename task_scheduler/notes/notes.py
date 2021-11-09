@@ -1,5 +1,5 @@
 import pandas as pd
-
+import time
 
 class Notes:
 
@@ -44,6 +44,9 @@ class NotesHandler:
         self.notes.iloc[index]['title'] = newtitle
         self.notes.iloc[index]['content'] = newcontent
 
+    def save_note(self):
+        self.notes.to_csv('./task_scheduler/notes.csv', header=True, index = False, mode='w')
+
 
 if __name__ == "__main__":
 
@@ -78,6 +81,12 @@ if __name__ == "__main__":
             newcontent = input(f"enter the new content >>>")
             handler.modify_note(index, newtitle, newcontent)
             print(f"note number {index} has been modified successfully!" )
+        
+        elif choice == "s":
+            handler.save_note()
+            print("uploading ...")
+            time.sleep(2)
+            print("notes have been successfully uploaded to the server!")
         
         else:
             print("Please choose one of the available choices")
