@@ -45,6 +45,11 @@ class RemindersHandler:
                 self.handle_delete()
             else:
                 print("Please enter a valid option.")
+
+    def save_to_server(self):
+        self.reminders.to_csv(self.path, header=True, index=False, mode='w')
+        
+
                 
     def update_reminder(self, index, newtime, newmessage):
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
@@ -116,4 +121,5 @@ class RemindersHandler:
         idx = input("➤➤➤   ")
         self.delete_reminder(int(idx))
         print("Reminder has been deleted successfully!")
+
 
