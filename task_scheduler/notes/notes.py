@@ -40,7 +40,7 @@ class NotesHandler:
 
     def __init__(self):
 
-        self.notes = pd.read_csv('/home/hamza/task-scheduler/task_scheduler/notes/notes.csv')
+        self.notes = pd.read_csv('./task_scheduler/notes/notes.csv')
 
     def add_note(self, title, content):
         """ Function to add notes in the notes page """

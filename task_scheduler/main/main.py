@@ -42,7 +42,7 @@ def main():
     """
     welcome()
     nh = NotesHandler()
-    rmh = RemindersHandler("/home/hamza/task-scheduler/task_scheduler/reminders/reminders.csv")
+    rmh = RemindersHandler("./task_scheduler/reminders/reminders.csv")
     reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
     entertainment_th = threading.Thread(
         target=idle_tracker, daemon=True)
