@@ -6,6 +6,8 @@ import time
 import random
 
 def mahjongg():
+    """[the function how give the user mahjongg game]
+    """
     os.system('clear')
     welcome = "Welcome to Mahjong by CodePyrates."
     welcome = colored(welcome, 'green', attrs=['bold'])

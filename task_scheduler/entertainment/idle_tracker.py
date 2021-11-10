@@ -8,6 +8,8 @@ from task_scheduler.entertainment.game import mahjongg
 def launch_entertainment():
     mahjongg()
 def idle_tracker():
+    """[this function deal with user when he/she idle to be more interact with her/him]
+    """
     mouse = Controller()
     init = mouse.position
     period = 0

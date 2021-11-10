@@ -3,15 +3,33 @@ import time
 
 
 class Notes:
+    """[class Notes]
+    """
 
     def __init__(self, title, content):
+        """[constractore]
+
+        Args:
+            title ([str]): [title of note]
+            content ([str]): [content of note]
+        """
         self.title = title
         self.content = content
 
     def update_title(self, new_title):
+        """[update the title of note]
+
+        Args:
+            new_title ([str]): [new name of your note]
+        """
         self.title = new_title
 
     def update_content(self, new_content):
+        """[update the contet of note]
+
+        Args:
+            new_contet ([str]): [new content of your note]
+        """
         self.content = new_content
 
     def __str__(self):
@@ -51,10 +69,14 @@ class NotesHandler:
         self.notes.iloc[index]['content'] = newcontent
 
     def save_note(self):
+        """[save your note to show it again]
+        """
         self.notes.to_csv('./task_scheduler/notes/notes.csv',
                           header=True, index=False, mode='w')
 
     def start(self):
+        """[full scenario for Note]
+        """
 
         while True:
             self.view_notes()

@@ -2,8 +2,11 @@ import datetime
 import time
 store_group_details = {}
 
-
+    
 def print_instruction():
+    """[this function make you start with the group app as welcome of you]
+    """
+    
     print("Welcome to App Grouping 🖥️")
     print("Please choose the group that suits you:")
     group_app_containt = """
@@ -15,6 +18,11 @@ def print_instruction():
 
 
 def get_app():
+    """[this function give the user ability to choose the group of apps]
+
+    Returns:
+        [type]: [description]
+    """
     input_group = input("➤➤➤   ")
     group_list = [{'type': "1", 'app': ['VS Code', 'Terminal', 'Firefox', ]},
                   {'type': '2', 'app': [
@@ -28,6 +36,8 @@ def get_app():
 
 
 def get_date():
+    """[specifing the date of your group of apps]
+    """
     print("Enter the date in format 'DD-MM-YYYY':")
     inputDate = input("➤➤➤   ")
     try:
@@ -39,6 +49,8 @@ def get_date():
 
 
 def get_time():
+    """[specifing the time of your group of apps]
+    """
     print("Enter the time in format 'HH:MM':")
     inputTime = input("➤➤➤   ")
     try:
@@ -56,6 +68,11 @@ def group_app_name():
 
 
 def summary_details(summary_group):
+    """[give the user a summary of all group ]
+
+    Args:
+        summary_group ([str]): [s mean summary]
+    """
     if summary_group == "s":
         if store_group_details:
             for k, v in store_group_details.items():
@@ -73,6 +90,8 @@ def summary_details(summary_group):
 
 
 def update_details():
+    """[make the user update group]
+    """
     print("Please select which field you want to change:")
     input_details = input("➤➤➤   ")
     for item in store_group_details:
@@ -86,6 +105,11 @@ def update_details():
 
 
 def update_all_feature(input_details):
+    """[make user update all feature of group]
+
+    Args:
+        input_details ([str]): [to get your update data]
+    """
     if input_details == "1" or input_details == "2" or input_details == "3":
         update_group_app(input_details)
     elif input_details == "Date":
@@ -97,6 +121,11 @@ def update_all_feature(input_details):
 
 
 def complet_update_function(complet_update):
+    """[check if the user already finish there update]
+
+    Args:
+        complet_update ([str]): [y mean yes anything else mean I need still need update]
+    """
     if complet_update == 'Y' or complet_update == 'y':
         print("Your update was saved successfully!")
         
@@ -106,6 +135,11 @@ def complet_update_function(complet_update):
 
 
 def update_group_app(input_detais):
+    """[start with update ]
+
+    Args:
+        input_details ([str]): [details of group app]
+    """
 
     group_app_containt = """
 1. VS Code, Terminal, Firefox
@@ -119,7 +153,7 @@ def update_group_app(input_detais):
     group_list = [{'type': "1", 'app': ['vs code', 'notepad', 'google', ]},
                   {'type': '2', 'app': [
                       'slack', ' Discord', 'zoom', 'vs code', ]},
-                  {'type': '3', 'app': ['calculater', 'google']}]
+                  {'type': '3', 'app': ['calculator', 'google']}]
     flag = False
     saved_group_app = None
     for group in group_list:
@@ -137,6 +171,11 @@ def update_group_app(input_detais):
 
 
 def update_date_app(input_details):
+    """[update the date to open the app]
+
+    Args:
+        input_details ([str]): [details of group app]
+    """
     if input_details in store_group_details:
         del store_group_details["Date"]
         get_date()
@@ -146,6 +185,11 @@ def update_date_app(input_details):
 
 
 def update_time_app(input_details):
+    """[update the time to open the app]
+
+    Args:
+        input_details ([str]): [details of group app]
+    """
     if input_details in store_group_details:
         del store_group_details['Time']
         get_time()
@@ -155,6 +199,11 @@ def update_time_app(input_details):
 
 
 def update_group_app_name(input_details):
+    """[change name of group apps]
+
+    Args:
+        input_details ([str]): [name of group]
+    """
     if input_details in store_group_details:
         del store_group_details['group name']
         # print (store_group_details)
@@ -174,6 +223,11 @@ def update_group_app_name(input_details):
 
 
 def main_scenario():
+    """[main scenario of app group]
+
+    Returns:
+        [str]: [all group]
+    """
     print_instruction()
     get_app()
     get_date()

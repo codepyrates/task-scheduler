@@ -14,6 +14,8 @@ os.system("clear")
 
 
 def welcome():
+    """[Welcome function how welcome of the user]
+    """
     welcome = "Welcome, this is"
     welcome = colored(welcome, 'cyan', attrs=['bold'])
     msg = ""
@@ -36,6 +38,8 @@ def welcome():
 
 
 def main():
+    """[the main its a base function in app that make you start deal with app]
+    """
     welcome()
     nh = NotesHandler()
     rmh = RemindersHandler("/home/hamza/task-scheduler/task_scheduler/reminders/reminders.csv")

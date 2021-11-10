@@ -1,5 +1,10 @@
 from task_scheduler.topic_search.websites_to_search import list_of_websites
 def search_main():
+    """[its a main search function its show you the scenario of search to search about specific topic]
+
+    Returns:
+        [string]: [topic that search about it]
+    """
     # Start Search Option scenario
     print("Welcome to search, start by typing something to search for.")
     topic_search = input("Search >>>")
