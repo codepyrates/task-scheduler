@@ -8,26 +8,45 @@ Select From the folowing group app:
       
     
 Anton says: pleas select group name as shown above📣📣
->>> app_group2
+>>> app_group1
 Enter the date in format 'dd-mm-yyyy':
->>> 12-12-2022
+>>> 12-2-200
+enter date not match with the formela try it again or type quite 
+Enter the date in format 'dd-mm-yyyy':
+>>> 12-2-2000
 Enter the time in format 'HH:MM':
->>> 12:44
+>>> 12:3
 Please enter group_app name:
->>> mewe
+>>> test
 ********************************************
 if you want see app group detalis pleas enter summary: 
 >>> summary
-app_group2 : slack  Discord zoom vs code
-Date : 2022-12-12
-Time : 12:44:00
-group name : mewe
+app_group1 : vs code notepad google
+Date : 2000-02-12
+Time : 12:03:00
+group name : test
 did you want to update on this details [Y/N] 
 >>> y
 please select which field you want to change
 >>> Time
 Enter the time in format 'HH:MM':
->>> 12:12
+>>> 3:56
+did you finish update?[Y/N]
+>>> n
+please select which field you want to change
+>>> Date
+Enter the date in format 'dd-mm-yyyy':
+>>> 23-3-2034
+did you finish update[Y/N]
+>>> group name
+please select which field you want to change
+>>> group name
+Please enter group_app name:
+>>> update_test
+app_group1 : vs code notepad google
+Time : 03:56:00
+Date : 2034-03-23
+group name : update_test
 did you finish update?[Y/N]
 >>> y
 your update store successfully

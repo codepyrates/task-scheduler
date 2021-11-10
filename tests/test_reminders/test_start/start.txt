@@ -1,9 +1,0 @@
-Welcome to Reminders ⏰
-0. Time: 22:22:22
-   Date: 2021-11-08
-   Message: First reminder
-1. Time: 11:11:11
-   Date: 2021-11-09
-   Message: Second reminder
-Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
-➤➤➤   q
