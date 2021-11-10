@@ -3,9 +3,14 @@ from bs4 import BeautifulSoup
 
 
 def wikipedia_search(topic = 'cat' , back = None):
-    """
-    this function is tack an topic(text) as an argument and return an
-    article how descrip this topic from wikipedia
+    """[search about topic from wikipedia site]
+
+    Args:
+        topic (str, optional): [topic]. Defaults to 'cat'.
+        back ([type], optional): [to save base topic name]. Defaults to None.
+
+    Returns:
+        [str]: [article related with your topic]
     """
     url = 'https://en.wikipedia.org/wiki'
     res = requests.get(f"{url}/{topic}")
@@ -20,7 +25,8 @@ def wikipedia_search(topic = 'cat' , back = None):
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
             print(i.text.strip('\n'))
-            break
+            # return result from wikipedia
+            return i.text.strip('\n')
         else :
             text += "m"
         
@@ -44,6 +50,14 @@ def wikipedia_search(topic = 'cat' , back = None):
         wikipedia_search(list_of_choices[user_choices - 1] , topic)
 
 def britannica_search(topic ='animal' ):
+    """[search about topic from britannica site]
+
+    Args:
+        topic (str, optional): [topic]. Defaults to 'animal'.
+
+    Returns:
+        [str]: [article that related with your topic]
+    """
     url = f"https://www.britannica.com/search?query={topic}"
     res = requests.get(url)
     html_text = res.text
@@ -51,13 +65,21 @@ def britannica_search(topic ='animal' ):
     li = soup.find_all('li', {'class': 'mb-45'})
     for i in li :
         print(i.findChildren("div" ,recursive = False )[0].text)
-        break
+        # return result from britannica
+        return i.findChildren("div" ,recursive = False )[0].text
+        
 
 def citizendium_search(topic = "fish" , counter = 0):
+    """[search about topic from citizendium]
+
+    Args:
+        topic (str, optional): [topic]. Defaults to "fish".
+        counter (int, optional): [counter to help for search]. Defaults to 0.
+
+    Returns:
+        [str]: [article that related with your topic]
     """
-    this function is tack an topic(text) as an argument and return an
-    article how descrip this topic from citizendium
-    """
+   
     url = 'https://en.citizendium.org/wiki'
     res = requests.get(f"{url}/{topic}")
     html_text = res.text
@@ -68,7 +90,8 @@ def citizendium_search(topic = "fish" , counter = 0):
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
             print(i.text.strip('\n'))
-            break
+            # return result from citicendium
+            return i.text.strip('\n')
         else :
             text += "m"
         
@@ -101,20 +124,32 @@ def citizendium_search(topic = "fish" , counter = 0):
 
 
 def list_of_websites(topic_search = 'dog'):
+    """[give a list of websites to search from its]
+
+    Args:
+        topic_search (str, optional): [topic]. Defaults to 'dog'.
+
+    Returns:
+        [str]: [article related with your topic and your site]
+    """
     
     print(f"1.Article about {topic_search} from Wikipedia.\n2.Article about {topic_search} from Britannica.\n3.Article about {topic_search} from citizendium.")
     prompt = input("> ").lower()
     # website = '2'
     if prompt == '1' :
         # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
-        wikipedia_search(topic_search)
+        
+        val = wikipedia_search(topic_search)
+        return val
     if prompt == '2' :
         # if the user choose 2 the britannica function will start to give him an article from britannica site.
-        britannica_search(topic_search)
+        val = britannica_search(topic_search)
+        return val
     if prompt == '3' :
         # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
-        citizendium_search(topic_search)
-
+        val =  citizendium_search(topic_search)
+        return val
+    
 
 
 

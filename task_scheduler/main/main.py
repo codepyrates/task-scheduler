@@ -2,9 +2,20 @@ from art import tprint
 from termcolor import colored
 import time
 import threading
+import subprocess
+import os
+import webbrowser
+from task_scheduler.reminders.reminder_handler import RemindersHandler
+from task_scheduler.group.group_app import main_scenario
+from task_scheduler.notes.notes import NotesHandler, Notes
+from task_scheduler.entertainment.idle_tracker import idle_tracker
+from task_scheduler.topic_search.main_search_of_topics import search_main
+os.system("clear")
 
 
 def welcome():
+    """[Welcome function how welcome of the user]
+    """
     welcome = "Welcome, this is"
     welcome = colored(welcome, 'cyan', attrs=['bold'])
     msg = ""
@@ -25,20 +36,41 @@ def welcome():
     time.sleep(0.25)
     print("\n")
 
-def reminder_thread():
-    pass
-
-def entertainment_thread():
-    pass
 
 def main():
+    """[the main its a base function in app that make you start deal with app]
+    """
     welcome()
-    reminder_th = threading.Thread(target=reminder_thread, daemon=True)
+    nh = NotesHandler()
+    rmh = RemindersHandler("/home/hamza/task-scheduler/task_scheduler/reminders/reminders.csv")
+    reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
     entertainment_th = threading.Thread(
-        target=entertainment_thread, daemon=True)
+        target=idle_tracker, daemon=True)
     reminder_th.start()
     entertainment_th.start()
     while True:
-        pass
+        os.system("clear")
+        print(
+            "Options { r : reminders    a : app grouping    s : search   n : notes    e : entertainment    q : quit}")
+        pmt = input("➤➤➤   ")
+        if pmt == "q":
+            print("See you soon.")
+            exit()
+        elif pmt == "r":
+            rmh.start()
+        elif pmt == "a":
+            apps = main_scenario()
+            rmh.add_app_group(apps)
+        elif pmt == "n":
+            nh.start()
+        elif pmt == "s":
+            result = search_main()
+            nh.add_note("",result)
+            search_main()
+        else:
+            print("Please enter a valid option.")
 
-main()
+
+if __name__ == "__main__":
+
+    main()

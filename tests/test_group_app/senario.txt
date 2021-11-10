@@ -1,20 +1,33 @@
-Anton say: select your group app you would open it:
-*****************************************
-Select From the folowing group app:
+Welcome to App Grouping 🖥️
+Please choose the group that suits you:
 
-    app_group1 ==> [vs code, notepad, google]
-    app_group2 ==> [slack,  Discord, zoom, vs code]
-    app_group3 ==> [calculater, google]
-      
+1. VS Code, Terminal, Firefox
+2. Slack, Discord, Zoom
+3. Thundermail, Libreoffice
     
-Anton says: pleas select group name as shown above📣📣
->>> app_group2
-Enter the date in format 'dd-mm-yyyy':
->>> 12-3-2002
+➤➤➤   1
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   654
+Entered date does not match the provided format.
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   11-11-2022
 Enter the time in format 'HH:MM':
->>> 12:12
-Please enter group_app name:
->>> test
-********************************************
-if you want see app group detalis pleas enter summary: 
->>> f
+➤➤➤   64564
+Entered time does not match the provided format.
+Enter the time in format 'HH:MM':
+➤➤➤   12:12
+Enter the name of the app group you selected:
+➤➤➤   work
+If you want to view the app group's details, type 's':
+➤➤➤   s
+1
+['VS Code', 'Terminal', 'Firefox']
+Date
+2022-11-11
+Time
+12:12:00
+group name
+work
+Would you like to update on this details [Y/N]?
+➤➤➤   n
+App group has been saved successfully!

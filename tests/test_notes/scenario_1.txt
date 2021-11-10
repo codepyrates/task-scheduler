@@ -1,0 +1,14 @@
+0. amazing book
+  i am thinking about buying a new book
+Options { a: add new note    d: delete note    m: modify note    q: quit }
+➤➤➤   a
+Enter the title of the new note:
+➤➤➤   new
+Type the content of the new note:
+➤➤➤   new note
+Note added successfully!
+0. amazing book
+  i am thinking about buying a new book
+1. new
+  new note
+Options { a: add new note    d: delete note    m: modify note    q: quit }
