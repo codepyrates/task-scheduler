@@ -176,5 +176,5 @@ class RemindersHandler:
 
 
 if __name__ == "__main__":
-    rmh = RemindersHandler("/home/hamza/task-scheduler/tests/test_reminders/reminders.csv")
+    rmh = RemindersHandler("./tests/test_reminders/reminders.csv")
     rmh.start()
