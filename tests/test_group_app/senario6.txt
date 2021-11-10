@@ -1,0 +1,79 @@
+Anton say: select your group app you would open it:
+*****************************************
+Select From the folowing group app:
+
+    app_group1 ==> [vs code, notepad, google]
+    app_group2 ==> [slack,  Discord, zoom, vs code]
+    app_group3 ==> [calculater, google]
+      
+    
+Anton says: pleas select group name as shown above📣📣
+>>> app_group3
+Enter the date in format 'dd-mm-yyyy':
+>>> 12-
+enter date not match with the formela try it again or type quite 
+Enter the date in format 'dd-mm-yyyy':
+>>> 12-2-2002
+Enter the time in format 'HH:MM':
+>>> 12:12
+Please enter group_app name:
+>>> 
+try again
+Please enter group_app name:
+>>> 
+try again
+Please enter group_app name:
+>>> e
+********************************************
+if you want see app group detalis pleas enter summary: 
+>>> summary
+app_group3 : calculater google
+Date : 2002-02-12
+Time : 12:12:00
+group name : e
+did you want to update on this details [Y/N] 
+>>> y
+please select which field you want to change
+>>> group name
+Please enter group_app name:
+>>> 
+try again
+Please enter group_app name:
+>>> we
+app_group3 : calculater google
+Date : 2002-02-12
+Time : 12:12:00
+group name : we
+did you finish update?[Y/N]
+>>> n
+please select which field you want to change
+>>> 
+your input dose not exist? 
+please select which field you want to change
+>>> app_group3
+
+    app_group1 ==> [vs code, notepad, google]
+    app_group2 ==> [slack,  Discord, zoom, vs code]
+    app_group3 ==> [calculater, google]
+    
+Select group app name:
+>>> app_group2
+Date : 2002-02-12
+Time : 12:12:00
+group name : we
+app_group2 : slack  Discord zoom vs code
+did you finish update[Y/N]
+>>> n
+please select which field you want to change
+>>> Date
+Enter the date in format 'dd-mm-yyyy':
+>>> 
+enter date not match with the formela try it again or type quite 
+Enter the date in format 'dd-mm-yyyy':
+>>> 22
+enter date not match with the formela try it again or type quite 
+Enter the date in format 'dd-mm-yyyy':
+>>> 22-2-2055
+did you finish update[Y/N]
+>>> y
+your update store successfully

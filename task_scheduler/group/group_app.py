@@ -42,6 +42,9 @@ def get_app():
         if group['type'] == input_group:
             store_group_details[input_group]=group['app']
             return group['app']
+    else: #new
+        print ("try again")
+        get_app()
     return None
 #=======================get date part=============================
 
@@ -96,7 +99,12 @@ def group_app_name ():
     """
     print ("Please enter group_app name:")
     gname = input(">>> ")
-    store_group_details["group name"]= gname
+    if not gname:
+         #new
+        print ("try again")
+        group_app_name()
+    else:
+        store_group_details["group name"]= gname
 #=======================summary part=============================
 
 def summary_details(summary_group):
@@ -105,10 +113,13 @@ def summary_details(summary_group):
     arqument input "summary"
     action: print store_group_details for user
     """
+    #  if store_group_details:
     if summary_group == "summary":
-        if store_group_details:
-            for k,v in store_group_details.items():
-                print(k,'\n', v)
+        for key,val in store_group_details.items():
+            if isinstance(val, list):
+                print(key, ":" ," ".join(val))
+            else:
+                print(key, ":" , val)
         print("did you want to update on this details [Y/N] ")        
         update_check = input(">>> ") 
         if update_check == "Y" or update_check == "y":
@@ -116,7 +127,8 @@ def summary_details(summary_group):
         elif update_check == "N" or update_check == "n":
                     print ("no")
     else:
-        update_details()
+        # update_details()
+        exit ()
 #=======================update part=============================
 def update_details():
     """
@@ -134,7 +146,7 @@ def update_details():
     else: 
         print ("your input dose not exist? ")
         update_details()
-        print ("your input dose not exist? ")
+        # print ("your input dose not exist? ")
 
 
 #=======================update all feature part===================
@@ -159,11 +171,15 @@ def complet_update_function(complet_update):
     argument varuble
     based on user input if enter 'y' the programme print msg and exit from excution else he will go back to update_details
     """
-    if complet_update == 'Y' or complet_update == 'y':
-        print ("your update store successfully")
-        exit()
+    if complet_update == 'Y' or complet_update == 'y' or complet_update == 'N' or complet_update == 'n':
+        if complet_update == 'Y' or complet_update == 'y':
+            print ("your update store successfully")
+            exit()
+        elif complet_update == 'N' or complet_update == 'n':
+            update_details()
     else:
-        update_details()
+        complet_update = input (">>> ")
+        complet_update_function(complet_update)
 #=======================update_group_app==========================
 def update_group_app(input_detais):
     """
@@ -196,7 +212,11 @@ def update_group_app(input_detais):
     if flag :
         del store_group_details [input_detais]
         store_group_details[f'{update_group_app}'] = saved_group_app
-        print (store_group_details)
+        for key,val in store_group_details.items():
+            if isinstance(val, list):
+                print(key, ":" ," ".join(val))
+            else:
+                print(key, ":" , val)
         
     print ("did you finish update[Y/N]")
     complet_update = input (">>> ")
@@ -260,7 +280,12 @@ def main_senario():
     print("********************************************")
     print ("if you want see app group detalis pleas enter summary: ")
     summary_group = str(input(">>> "))
-    summary_details (summary_group)
+    while not summary_group:
+         #new
+        print ("try again")
+        summary_group = str(input(">>> "))
+    else:
+        summary_details (summary_group)
 
 if __name__ == "__main__":
     main_senario()
