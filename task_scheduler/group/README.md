@@ -38,3 +38,7 @@ did you want to update on this details [Y/N]?
 ```
    * if he input y he will ask them to enter which feild want to update on them
    * if he enter n he will exit the programme
+### the programme ask user if he want to finish update 
+```
+did you finish update?[Y/N]
+```
