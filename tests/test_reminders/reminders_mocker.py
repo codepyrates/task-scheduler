@@ -46,7 +46,7 @@ def _extract_responses(lines):
     responses = []
     for line in lines:
         if line.startswith("➤"):
-            response = line.replace("➤➤➤", "").strip()
+            response = line.replace("➤➤➤   ", "").strip()
             responses.append(response)
     return responses
 

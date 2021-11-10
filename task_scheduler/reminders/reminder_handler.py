@@ -51,28 +51,30 @@ class RemindersHandler:
         self.reminders.to_csv(self.path, header=True, index=False, mode='w')
     def launch_app_group(self, apps):
         for app in apps:
-            if app == "Slack":
-                q = threading.Thread(target=self.slack, daemon=True)
-                q.start()
-            elif app == "Discord":
-                z = threading.Thread(target=self.discord, daemon=True)
-                z.start()
-            elif app == "Zoom":
-                y = threading.Thread(target=self.zoom, daemon=True)
-                y.start()
-            elif app == "FireFox":
-                x = threading.Thread(target=self.firefox, daemon=True)
-                x.start()
-            elif app == "VS Code":
-                w = threading.Thread(target=self.vscode, daemon=True)
-                w.start()
-               
-            elif app == "Terminal":
-                a = threading.Thread(target=self.terminal)
-                a.start()
-            elif app == "Thundermail":
-                r = threading.Thread(target=self.thundermail)
-                r.start()
+            try:
+                if app == "Slack":
+                    q = threading.Thread(target=self.slack, daemon=True)
+                    q.start()
+                elif app == "Discord":
+                    z = threading.Thread(target=self.discord, daemon=True)
+                    z.start()
+                elif app == "Zoom":
+                    y = threading.Thread(target=self.zoom, daemon=True)
+                    y.start()
+                elif app == "FireFox":
+                    x = threading.Thread(target=self.firefox, daemon=True)
+                    x.start()
+                elif app == "VS Code":
+                    w = threading.Thread(target=self.vscode, daemon=True)
+                    w.start()
+                elif app == "Terminal":
+                    a = threading.Thread(target=self.terminal)
+                    a.start()
+                elif app == "Thundermail":
+                    r = threading.Thread(target=self.thundermail)
+                    r.start()
+            except:
+                raise threading.ThreadError
             
     def update_reminder(self, index, newtime, newmessage):
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
@@ -174,5 +176,5 @@ class RemindersHandler:
 
 
 if __name__ == "__main__":
-    rmh = RemindersHandler("./reminders.csv")
+    rmh = RemindersHandler("/home/hamza/task-scheduler/tests/test_reminders/reminders.csv")
     rmh.start()

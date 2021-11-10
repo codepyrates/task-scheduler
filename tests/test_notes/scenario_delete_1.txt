@@ -1,0 +1,8 @@
+0. amazing book
+  i am thinking about buying a new book
+Options { a: add new note    d: delete note    m: modify note    q: quit }
+➤➤➤   d
+Enter the number of the note you want to delete:
+➤➤➤   0
+Note number 0 has been deleted successfully!
+Options { a: add new note    d: delete note    m: modify note    q: quit }

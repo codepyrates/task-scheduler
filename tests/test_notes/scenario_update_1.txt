@@ -1,0 +1,14 @@
+0. amazing book
+  i am thinking about buying a new book
+Options { a: add new note    d: delete note    m: modify note    q: quit }
+➤➤➤   m
+Enter the number of the note you want to modify:
+➤➤➤   0
+Enter the new title for the note:
+➤➤➤   updated note
+Type the new content for the note:
+➤➤➤   updated note
+note number 0 has been modified successfully!
+0. updated note
+  updated note
+Options { a: add new note    d: delete note    m: modify note    q: quit }

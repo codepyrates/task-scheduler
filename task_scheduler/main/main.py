@@ -38,7 +38,7 @@ def welcome():
 def main():
     welcome()
     nh = NotesHandler()
-    rmh = RemindersHandler("task_scheduler/main/reminders.csv")
+    rmh = RemindersHandler("/home/hamza/task-scheduler/task_scheduler/reminders/reminders.csv")
     reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
     entertainment_th = threading.Thread(
         target=idle_tracker, daemon=True)
@@ -55,7 +55,8 @@ def main():
         elif pmt == "r":
             rmh.start()
         elif pmt == "a":
-            main_scenario()
+            apps = main_scenario()
+            rmh.add_app_group(apps)
         elif pmt == "n":
             nh.start()
         elif pmt == "s":

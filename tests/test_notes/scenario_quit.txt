@@ -1,0 +1,4 @@
+0. amazing book
+  i am thinking about buying a new book
+Options { a: add new note    d: delete note    m: modify note    q: quit }
+➤➤➤   q

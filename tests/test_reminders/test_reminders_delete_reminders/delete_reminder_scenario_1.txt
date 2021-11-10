@@ -1,16 +1,22 @@
 Welcome to Reminders ⏰
-0. Time: 22:22:22
-   Date: 2021-11-08
-   Message: First reminder
-1. Time: 11:11:11
+0. Time: 00:55:00
    Date: 2021-11-09
-   Message: Second reminder
+   Message: this is just a test
+1. Time: 10:10:10
+   Date: 2021-12-09
+   Message: this a reminder
+2. Time: 22:22:22
+   Date: 2021-12-23
+   Message: new reminder
 Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
 ➤➤➤   d
 Enter the index of the reminder you want to delete:
-➤➤➤   0
+➤➤➤   2
 Reminder has been deleted successfully!
-0. Time: 11:11:11
+0. Time: 00:55:00
    Date: 2021-11-09
-   Message: Second reminder
+   Message: this is just a test
+1. Time: 10:10:10
+   Date: 2021-12-09
+   Message: this a reminder
 Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }

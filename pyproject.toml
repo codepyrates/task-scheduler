@@ -15,6 +15,7 @@ pynput = "^1.7.4"
 terminaltables = "^3.1.0"
 termcolor = "^1.1.0"
 art = "^5.3"
+coverage = "^6.1.1"
 
 
 [tool.poetry.dev-dependencies]
