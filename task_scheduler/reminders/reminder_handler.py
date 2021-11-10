@@ -84,7 +84,8 @@ class RemindersHandler:
                 greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
                 greeting.pack()
                 window.mainloop()
-                break
+                print("it is time")
+                self.reminder_thread()
     def start_reminder_thread(self):
         reminder = threading.Thread(target=self.reminder_thread)
         reminder.start()  
