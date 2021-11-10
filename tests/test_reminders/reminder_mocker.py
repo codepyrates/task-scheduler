@@ -2,7 +2,7 @@ import builtins
 import difflib
 import sys
 
-def mocker(start, path):
+def reminder_mocker(start, path):
     
     text = ""
     expected_lines = _parse_expected_lines(path)
@@ -45,8 +45,8 @@ def _parse_expected_lines(path):
 def _extract_responses(lines):
     responses = []
     for line in lines:
-        if line.startswith(">"):
-            response = line.replace(">>> ", "").strip()
+        if line.startswith("➤"):
+            response = line.replace("➤➤➤", "").strip()
             responses.append(response)
     return responses
 

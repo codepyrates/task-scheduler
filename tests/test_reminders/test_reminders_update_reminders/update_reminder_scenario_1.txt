@@ -1,0 +1,26 @@
+Welcome to Reminders ⏰
+0. Time: 22:22:22
+   Date: 2021-11-08
+   Message: First reminder
+1. Time: 11:11:11
+   Date: 2021-11-09
+   Message: Second reminder
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
+➤➤➤   u
+Enter the index of the reminder you want to update:
+➤➤➤   0
+Enter new time, empty to keep the old one, old one is 22:22:22:
+➤➤➤   23:23:23
+Enter new date, empty to keep the old one, old one is 2021-11-08:
+➤➤➤   2023-12-23
+Enter new message, empty to keep the old one, old one is
+“First reminder”:
+➤➤➤   the message is updated
+Reminder has been updated successfully!
+0. Time: 11:11:11
+   Date: 2021-11-09
+   Message: Second reminder
+1. Time: 23:23:23
+   Date: 2023-12-23
+   Message: the message is updated
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
