@@ -5,7 +5,7 @@ from tests.test_reminders.reminders_mocker import reminder_mocker
 
 @pytest.fixture
 def reminder_handler():
-    rmh = RemindersHandler("./tests/test_reminders/reminder.csv")
+    rmh = RemindersHandler("./tests/test_reminders/reminders.csv")
     return rmh
 
 def test_start_scenario_1(reminder_handler):

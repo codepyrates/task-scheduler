@@ -2,6 +2,7 @@ from pynput.mouse import Controller
 from termcolor import colored
 import time
 import os
+import sys
 from task_scheduler.entertainment.game import mahjongg
 
 def launch_entertainment():

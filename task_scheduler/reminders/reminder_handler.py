@@ -5,6 +5,8 @@ import tkinter as tk
 import os
 import time
 import threading
+import re
+import subprocess
 
 class RemindersHandler:
     def __init__(self, path):
@@ -34,6 +36,7 @@ class RemindersHandler:
             print("Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }")
             pmt = input("➤➤➤   ")
             if pmt == "q":
+                self.save_to_server()
                 return
             elif pmt == "u":
                 self.handle_update()
@@ -46,7 +49,31 @@ class RemindersHandler:
 
     def save_to_server(self):
         self.reminders.to_csv(self.path, header=True, index=False, mode='w')
-    
+    def launch_app_group(self, apps):
+        for app in apps:
+            if app == "Slack":
+                q = threading.Thread(target=self.slack, daemon=True)
+                q.start()
+            elif app == "Discord":
+                z = threading.Thread(target=self.discord, daemon=True)
+                z.start()
+            elif app == "Zoom":
+                y = threading.Thread(target=self.zoom, daemon=True)
+                y.start()
+            elif app == "FireFox":
+                x = threading.Thread(target=self.firefox, daemon=True)
+                x.start()
+            elif app == "VS Code":
+                w = threading.Thread(target=self.vscode, daemon=True)
+                w.start()
+               
+            elif app == "Terminal":
+                a = threading.Thread(target=self.terminal)
+                a.start()
+            elif app == "Thundermail":
+                r = threading.Thread(target=self.thundermail)
+                r.start()
+            
     def update_reminder(self, index, newtime, newmessage):
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
         self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
@@ -68,7 +95,22 @@ class RemindersHandler:
         msg = input("➤➤➤   ")
         self.update_reminder(int(idx), f"{dt} {tm}", msg)
         print("Reminder has been updated successfully!")
-
+    def terminal(self):
+        os.system("gnome-terminal")
+    def vscode(self):
+        subprocess.Popen("/usr/bin/code")
+    def discord(self):
+        os.popen("discord")
+    def slack(self):
+        os.popen("slack")
+    def terminal(self):
+        os.system("gnome-terminal")
+    def firefox(self):
+        os.popen("firefox")
+    def zoom(self):
+        os.popen("zoom")
+    def thundermail(self):
+        subprocess.Popen("/usr/bin/thunderbird")
     def get_next_reminder(self):
         return self.next_reminder    
     def reminder_thread(self):
@@ -78,14 +120,20 @@ class RemindersHandler:
             t = str(dt.now().replace(microsecond=0).time())
             d = str(dt.now().replace(microsecond=0).date())
             if next_reminder['time'] == t and next_reminder['date'] == d:
-                beep = lambda x: os.system("echo -n '\a';sleep 0.2;" * x)
-                beep(50)
-                window = tk.Tk()
-                greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
-                greeting.pack()
-                window.mainloop()
-                print("it is time")
-                self.reminder_thread()
+                if next_reminder['message'].startswith("Group"):
+                    apps = re.findall(r"\[.+\]", next_reminder['message'])[0].strip("[]")
+                    apps = re.findall(r"\w+", apps)
+                    self.launch_app_group(apps)
+                    os.system("clear")
+                    self.reminder_thread()
+                else:
+                    beep = lambda x: os.system("echo -n '\a';sleep 0.2;" * x)
+                    beep(50)
+                    window = tk.Tk()
+                    greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
+                    greeting.pack()
+                    window.mainloop()
+                    self.reminder_thread()
     def start_reminder_thread(self):
         reminder = threading.Thread(target=self.reminder_thread)
         reminder.start()  
@@ -94,6 +142,7 @@ class RemindersHandler:
         self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
         self.sort_reminders()
         self.update_next_reminder()
+        self.save_to_server()
     def handle_add(self):
         print("Enter time for new reminder, should follow HH:MM:SS, and in 24 hrs. format: (c) to cancel")
         tm = input("➤➤➤   ")
@@ -108,8 +157,11 @@ class RemindersHandler:
         print("Your new reminder has been saved successfully!")
 
     def add_app_group(self,group):
-        pass
- 
+        group_time = f"{group['Date']} {group['Time']}"
+        apps = group.get('1',group.get('2',group.get('3')))
+        group_name = "Group: " + group['group name'] + f" {apps}"
+        #print(group_time, group_name, apps)
+        self.add_reminder(group_time, group_name)
     def delete_reminder(self, index):
         self.reminders.drop(index, inplace=True)
         self.reminders.reset_index(drop=True, inplace=True)

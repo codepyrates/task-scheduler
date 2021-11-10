@@ -1,5 +1,5 @@
 import datetime
-
+import time
 store_group_details = {}
 
 
@@ -18,7 +18,7 @@ def get_app():
     input_group = input("➤➤➤   ")
     group_list = [{'type': "1", 'app': ['VS Code', 'Terminal', 'Firefox', ]},
                   {'type': '2', 'app': [
-                      'Slack', ' Discord', 'Zoom', ]},
+                      'Slack', 'Discord', 'Zoom', ]},
                   {'type': '3', 'app': ['Thundermail', 'Libreoffice']}]
     for group in group_list:
         if group['type'] == input_group:
@@ -65,7 +65,8 @@ def summary_details(summary_group):
         if update_check == "Y" or update_check == "y":
             update_details()
         elif update_check == "N" or update_check == "n":
-            print(store_group_details)
+            print("App group has been saved successfully!")
+            time.sleep(0.5)
     else:
         update_details()
 
@@ -77,10 +78,10 @@ def update_details():
         if item == input_details:
             update_all_feature(input_details)
             break
-        else:
-            print("your input dose not exist? ")
-            update_details()
-            print("your input dose not exist? ")
+    else:
+        print("your input dose not exist? ")
+        update_details()
+        print("your input dose not exist? ")
 
 
 def update_all_feature(input_details):
@@ -96,7 +97,8 @@ def update_all_feature(input_details):
 
 def complet_update_function(complet_update):
     if complet_update == 'Y' or complet_update == 'y':
-        print("your update store successfully")
+        print("Your update was saved successfully!")
+        
         exit()
     else:
         update_details()
@@ -184,6 +186,7 @@ def main_scenario():
     print("If you want to view the app group's details, type 's':")
     summary_group = str(input("➤➤➤   "))
     summary_details(summary_group)
+    return store_group_details
 
 
 if __name__ == "__main__":
