@@ -1,31 +1,50 @@
-Anton say: select your group app you would open it:
-*****************************************
-Select From the folowing group app:
+Welcome to App Grouping 🖥️
+Please choose the group that suits you:
 
-    app_group1 ==> [vs code, notepad, google]
-    app_group2 ==> [slack,  Discord, zoom, vs code]
-    app_group3 ==> [calculater, google]
-      
+1. VS Code, Terminal, Firefox
+2. Slack, Discord, Zoom
+3. Thundermail, Libreoffice
     
-Anton says: pleas select group name as shown above📣📣
->>> app_group3
-Enter the date in format 'dd-mm-yyyy':
->>> 12-2-2022
+➤➤➤   2
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   654
+Entered date does not match the provided format.
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   655
+Entered date does not match the provided format.
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   22-12-2222
 Enter the time in format 'HH:MM':
->>> 12:2
-Please enter group_app name:
->>> ree
-********************************************
-if you want see app group detalis pleas enter summary: 
->>> n
-please select which field you want to change
->>> group name
-Please enter group_app name:
->>> wewe
-app_group3 : calculater google
-Date : 2022-02-12
-Time : 12:02:00
-group name : wewe
+➤➤➤   22:222222222224
+Entered time does not match the provided format.
+Enter the time in format 'HH:MM':
+➤➤➤   22:22
+Enter the name of the app group you selected:
+➤➤➤   some group
+If you want to view the app group's details, type 's':
+➤➤➤   s
+1
+['VS Code', 'Terminal', 'Firefox']
+Date
+2222-12-22
+Time
+22:22:00
+group name
+some group
+2
+['Slack', 'Discord', 'Zoom']
+Would you like to update on this details [Y/N]?
+➤➤➤   y
+Please select which field you want to change:
+➤➤➤   Time
+Enter the time in format 'HH:MM':
+➤➤➤   11:11
 did you finish update?[Y/N]
->>> y
-your update store successfully
+➤➤➤   n
+Please select which field you want to change:
+➤➤➤   Date
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   11-11-1111
+did you finish update[Y/N]
+➤➤➤   y
+Your update was saved successfully!

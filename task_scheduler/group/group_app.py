@@ -59,7 +59,8 @@ def summary_details(summary_group):
     if summary_group == "s":
         if store_group_details:
             for k, v in store_group_details.items():
-                print(k, '\n', v)
+                print(str(k))
+                print(str(v))
         print("Would you like to update on this details [Y/N]?")
         update_check = input("➤➤➤   ")
         if update_check == "Y" or update_check == "y":
@@ -137,12 +138,8 @@ def update_group_app(input_detais):
 
 def update_date_app(input_details):
     if input_details in store_group_details:
-        # print (True)
         del store_group_details["Date"]
-        # print (store_group_details)
         get_date()
-        # print (store_group_details)
-        # complet update
     print("did you finish update[Y/N]")
     complet_update = input("➤➤➤   ")
     complet_update_function(complet_update)
@@ -151,10 +148,7 @@ def update_date_app(input_details):
 def update_time_app(input_details):
     if input_details in store_group_details:
         del store_group_details['Time']
-        # print (store_group_details)
         get_time()
-        # print (store_group_details)
-        # complet update
     print("did you finish update?[Y/N]")
     complet_update = input("➤➤➤   ")
     complet_update_function(complet_update)
@@ -167,9 +161,11 @@ def update_group_app_name(input_details):
         group_app_name()
         for key, val in store_group_details.items():
             if isinstance(val, list):
-                print(key, ":", " ".join(val))
+                print(str(key))
+                print(" ".join(val))
             else:
-                print(key, ":", val)
+                print(str(key))
+                print(str(val))
         # print ()
          # complet update
     print("did you finish update?[Y/N]")
