@@ -26,10 +26,12 @@ class NotesHandler:
 
     def add_note(self, title, content):
         """ Function to add notes in the notes page """
-
+        
         self.notes = self.notes.append(
             {"title": title, "content": content}, ignore_index=True)
-
+        if not title:
+            print("Search result added to notes.")
+            time.sleep(0.75)
     def view_notes(self):
         """ Function viewing notes saved in notes page """
 
@@ -38,6 +40,7 @@ class NotesHandler:
             print(f"{index}. {title}\n  {content}")
 
     def delete_note(self, index):
+
         self.notes.drop(index, inplace=True)
         self.notes.reset_index(drop=True, inplace=True)
 
@@ -52,6 +55,7 @@ class NotesHandler:
                           header=True, index=False, mode='w')
 
     def start(self):
+
         while True:
             self.view_notes()
             print(

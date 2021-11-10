@@ -60,6 +60,8 @@ def main():
         elif pmt == "n":
             nh.start()
         elif pmt == "s":
+            result = search_main()
+            nh.add_note("",result)
             search_main()
         else:
             print("Please enter a valid option.")

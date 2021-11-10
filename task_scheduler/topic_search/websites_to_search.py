@@ -20,7 +20,8 @@ def wikipedia_search(topic = 'cat' , back = None):
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
             print(i.text.strip('\n'))
-            break
+            # return result from wikipedia
+            return i.text.strip('\n')
         else :
             text += "m"
         
@@ -51,7 +52,9 @@ def britannica_search(topic ='animal' ):
     li = soup.find_all('li', {'class': 'mb-45'})
     for i in li :
         print(i.findChildren("div" ,recursive = False )[0].text)
-        break
+        # return result from britannica
+        return i.findChildren("div" ,recursive = False )[0].text
+        
 
 def citizendium_search(topic = "fish" , counter = 0):
     """
@@ -68,7 +71,8 @@ def citizendium_search(topic = "fish" , counter = 0):
         if  len(i.text) > 50 and topic.lower() in i.text.lower() :
             text += "s"
             print(i.text.strip('\n'))
-            break
+            # return result from citicendium
+            return i.text.strip('\n')
         else :
             text += "m"
         
@@ -107,14 +111,18 @@ def list_of_websites(topic_search = 'dog'):
     # website = '2'
     if prompt == '1' :
         # if the user choose 1 the wikipedia function will start to give him an article from wikipedia site.
-        wikipedia_search(topic_search)
+        
+        val = wikipedia_search(topic_search)
+        return val
     if prompt == '2' :
         # if the user choose 2 the britannica function will start to give him an article from britannica site.
-        britannica_search(topic_search)
+        val = britannica_search(topic_search)
+        return val
     if prompt == '3' :
         # if the user choose 1 the citizendium function will start to give him an article from citizendium site.
-        citizendium_search(topic_search)
-
+        val =  citizendium_search(topic_search)
+        return val
+    
 
 
 
