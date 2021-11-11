@@ -1,0 +1,50 @@
+Welcome to App Grouping 🖥️
+Please choose the group that suits you:
+
+1. VS Code, Terminal, Firefox
+2. Slack, Discord, Zoom
+3. Thundermail, Libreoffice
+    
+➤➤➤   2
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   654
+Entered date does not match the provided format.
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   655
+Entered date does not match the provided format.
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   22-12-2222
+Enter the time in format 'HH:MM':
+➤➤➤   22:222222222224
+Entered time does not match the provided format.
+Enter the time in format 'HH:MM':
+➤➤➤   22:22
+Enter the name of the app group you selected:
+➤➤➤   some group
+If you want to view the app group's details, type 's':
+➤➤➤   s
+1
+['VS Code', 'Terminal', 'Firefox']
+Date
+2222-12-22
+Time
+22:22:00
+group name
+some group
+2
+['Slack', 'Discord', 'Zoom']
+Would you like to update on this details [Y/N]?
+➤➤➤   y
+Please select which field you want to change:
+➤➤➤   Time
+Enter the time in format 'HH:MM':
+➤➤➤   11:11
+did you finish update?[Y/N]
+➤➤➤   n
+Please select which field you want to change:
+➤➤➤   Date
+Enter the date in format 'DD-MM-YYYY':
+➤➤➤   11-11-1111
+did you finish update[Y/N]
+➤➤➤   y
+Your update was saved successfully!
