@@ -1,5 +1,7 @@
 # Task Scheduler
 
+[![Coverage Status](https://coveralls.io/repos/github/codepyrates/task-scheduler/badge.svg?branch=main)](https://coveralls.io/github/codepyrates/task-scheduler?branch=main)
+
 ## Team Name: codepyrates
 
 ### Team members:
