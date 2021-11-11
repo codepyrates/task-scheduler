@@ -1,0 +1,19 @@
+1.Article about joker from Wikipedia.
+2.Article about joker from Britannica.
+3.Article about joker from citizendium.
+> 3
+Please can you discripe exactly what you search about, Because no subject have this word alone
+1_The Dark Knight (movie)/Definition 
+2_The Dark Knight (movie) 
+3_Solitaire (cipher) 
+4_Batman 
+5_Richard Feynman 
+> 1
+Please can you discripe exactly what you search about, Because no subject have this word alone
+1_The Dark Knight (movie) 
+2_Batman 
+3_Mike McMahon 
+4_Alan Moore 
+5_The Elder Scrolls III: Morrowind 
+> 2
+Batman is a comic book superhero who appears in DC Comics publications and has become one of the most popular superheroes in comic book history. The character has spanned across all sorts of mediums including film, television, video games and books. Recently, Christian Bale played the role in the Dark Knight Trilogy, followed by Ben Affleck when the character appeared in the DC Extended Universe. The latest actor to take the role is Robert Pattinson.

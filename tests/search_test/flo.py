@@ -2,7 +2,7 @@ import builtins
 import difflib
 import sys
 
-def mocker(start_reminder, path):
+def mocker(start_reminder, path, arg = "dog"):
 
     text = ""
     expected_lines = _parse_expected_lines(path)
@@ -27,7 +27,7 @@ def mocker(start_reminder, path):
     builtins.input = mock_input
 
     try:
-        start_reminder()
+        start_reminder(arg)
     except SystemExit:
         real_print("No problem. System exits are allowed in this app.")
 

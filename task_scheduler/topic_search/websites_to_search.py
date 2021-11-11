@@ -119,7 +119,7 @@ def citizendium_search(topic = "fish" , counter = 0):
                     
                 if change_the_choices == counter :
                     break
-        user_choices = int(input("Search >>>"))
+        user_choices = int(input("> "))
         citizendium_search(list_of_choices[user_choices - 1] , counter)
 
 
@@ -152,4 +152,6 @@ def list_of_websites(topic_search = 'dog'):
     
 
 
-
+if __name__ == "__main__":
+    
+    list_of_websites("joker")

@@ -92,7 +92,7 @@ def idle_tracker():
         time.sleep(0.1)
         period += 1
         final = ms.position
-        if (init == final) and (period > 70):
+        if (init == final) and (period > 100):
             kbd.press("z")
             kbd.release("z")
             time.sleep(0.5)

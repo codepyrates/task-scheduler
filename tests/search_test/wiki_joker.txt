@@ -1,0 +1,13 @@
+1.Article about joker from Wikipedia.
+2.Article about joker from Britannica.
+3.Article about joker from citizendium.
+> 1
+Please can you discripe exactly what you search about, Because no subject have this word alone
+1_Joker (playing card)
+2_Joker (character)
+3_The Joker (comic book)
+4_Joker (graphic novel)
+5_Joker (Jack Napier)
+> 1
+Joker (playing card)
+The Joker is a playing card found in most modern French-suited card decks, as an addition to the standard four suits (Clubs, Diamonds, Hearts, and Spades). From the second half of the 20th century, they have also been found in Spanish- and Italian-suited decks, excluding stripped decks. The Joker originated in the United States during the Civil War, and was created as a trump card for the game of Euchre. It has since been adopted into many other card games, where it often acts as a wild card, but may have other functions such as the top trump, a skip card (forcing another player to miss a turn), the lowest-ranking card, the highest-value card or a card of a different value from the rest of the pack (see e.g. Zwickern which has 6 Jokers with this function). By contrast, a wild card is any card that may be used to represent another card or cards; it need not be a Joker.

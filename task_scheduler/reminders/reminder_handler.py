@@ -46,6 +46,7 @@ class RemindersHandler:
         time.sleep(0.5)
         while True:
             time.sleep(0.5)
+            self.remove_old_reminders()
             self.view_reminders()
             print("Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }")
             pmt = input("➤➤➤   ")
@@ -94,6 +95,7 @@ class RemindersHandler:
                 elif app == "Thundermail":
                     r = threading.Thread(target=self.thundermail)
                     r.start()
+                
             except:
                 raise threading.ThreadError
     def update_reminder(self, index, newtime, newmessage):
@@ -195,6 +197,7 @@ class RemindersHandler:
                     greeting = tk.Label(text=f"\n\n{next_reminder['message']}",width=40, height=20)
                     greeting.pack()
                     window.mainloop()
+                    
                     self.reminder_thread()
     def start_reminder_thread(self):
         self.remove_old_reminders()
@@ -229,6 +232,7 @@ class RemindersHandler:
         group_name = "Group: " + group['group name'] + f" {apps}"
         self.add_reminder(group_time, group_name)
         self.remove_old_reminders()
+        self.update_next_reminder()
     def delete_reminder(self, index):
         """[delete reminder]
 
@@ -251,6 +255,8 @@ class RemindersHandler:
             diff = (tm - dt.now()).total_seconds()
             if diff < 0:
                 self.delete_reminder(i)
+                self.update_next_reminder()
+
                 
 if __name__ == "__main__":
     rmh = RemindersHandler("./reminders.csv")
