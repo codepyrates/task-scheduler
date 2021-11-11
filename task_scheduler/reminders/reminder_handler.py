@@ -20,6 +20,7 @@ class RemindersHandler:
         self.reminders = pd.read_csv(path)
         self.reminders['time'] = pd.to_datetime(self.reminders['time'], format="%Y-%m-%d %H:%M:%S")
         self.sort_reminders()
+        self.remove_old_reminders()
         self.update_next_reminder()
     def sort_reminders(self):
         """[sort reminders by time and date]
@@ -59,7 +60,6 @@ class RemindersHandler:
                 self.handle_delete()
             else:
                 print("Please enter a valid option.")
-
     def save_to_server(self):
         self.reminders.to_csv(self.path, header=True, index=False, mode='w')
     def launch_app_group(self, apps):
@@ -96,7 +96,6 @@ class RemindersHandler:
                     r.start()
             except:
                 raise threading.ThreadError
-            
     def update_reminder(self, index, newtime, newmessage):
         """[update reminder]
 
@@ -108,6 +107,7 @@ class RemindersHandler:
         self.reminders.iloc[index, self.reminders.columns.get_loc('time')] = dt.strptime(newtime, "%Y-%m-%d %H:%M:%S" )
         self.reminders.iloc[index, self.reminders.columns.get_loc('message')] = newmessage
         self.sort_reminders()
+        self.remove_old_reminders()
     def get_time_and_date_from_index(self, index):
         """[get reminder]
 
@@ -171,6 +171,7 @@ class RemindersHandler:
         Returns:
             [str]: [reminder]
         """
+        
         return self.next_reminder    
     def reminder_thread(self):
         """[reminder of app]
@@ -196,12 +197,13 @@ class RemindersHandler:
                     window.mainloop()
                     self.reminder_thread()
     def start_reminder_thread(self):
+        self.remove_old_reminders()
         reminder = threading.Thread(target=self.reminder_thread)
         reminder.start()  
-
     def add_reminder(self, time, message):
         self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
         self.sort_reminders()
+        self.remove_old_reminders()
         self.update_next_reminder()
         self.save_to_server()
     def handle_add(self):
@@ -221,13 +223,12 @@ class RemindersHandler:
         if msg == "c": return "c"
         self.add_reminder(f"{dt} {tm}", msg)
         print("Your new reminder has been saved successfully!")
-
     def add_app_group(self,group):
         group_time = f"{group['Date']} {group['Time']}"
         apps = group.get('1',group.get('2',group.get('3')))
         group_name = "Group: " + group['group name'] + f" {apps}"
-        #print(group_time, group_name, apps)
         self.add_reminder(group_time, group_name)
+        self.remove_old_reminders()
     def delete_reminder(self, index):
         """[delete reminder]
 
@@ -244,8 +245,14 @@ class RemindersHandler:
         idx = input("➤➤➤   ")
         self.delete_reminder(int(idx))
         print("Reminder has been deleted successfully!")
-
-
+    def remove_old_reminders(self):
+        for i in range(len(self.reminders) - 1):
+            tm = self.reminders.iloc[i]['time']
+            diff = (tm - dt.now()).total_seconds()
+            if diff < 0:
+                self.delete_reminder(i)
+                
 if __name__ == "__main__":
-    rmh = RemindersHandler("./tests/test_reminders/reminders.csv")
+    rmh = RemindersHandler("./reminders.csv")
+    
     rmh.start()

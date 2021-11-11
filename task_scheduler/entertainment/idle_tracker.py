@@ -19,7 +19,7 @@ def idle_tracker():
         final = mouse.position
         if (init == final) and (period > 70):
             #launch_entertainment()
-            #print("idle")
+            
             idle_tracker()
         elif init != final:
             time.sleep(0.1)

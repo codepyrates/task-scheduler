@@ -37,21 +37,23 @@ def welcome():
     print("\n")
 
 
-def main():
+def main(skip):
     """[the main its a base function in app that make you start deal with app]
     """
-    welcome()
     nh = NotesHandler()
     rmh = RemindersHandler("./task_scheduler/reminders/reminders.csv")
-    reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
-    entertainment_th = threading.Thread(
-        target=idle_tracker, daemon=True)
-    reminder_th.start()
-    entertainment_th.start()
+    if not skip:
+        welcome()
+        reminder_th = threading.Thread(target=rmh.reminder_thread, daemon=True)
+        entertainment_th = threading.Thread(
+            target=idle_tracker, daemon=True)
+        reminder_th.start()
+        entertainment_th.start()
     while True:
         os.system("clear")
-        print(
-            "Options { r : reminders    a : app grouping    s : search   n : notes    e : entertainment    q : quit}")
+        options = "Options { r : reminders    a : app grouping    s : search   n : notes    e : entertainment    q : quit}"
+        options = colored(options, 'cyan', attrs=['bold'])
+        print(options)
         pmt = input("➤➤➤   ")
         if pmt == "q":
             print("See you soon.")
@@ -67,10 +69,12 @@ def main():
             result = search_main()
             nh.add_note("",result)
             search_main()
+        elif pmt == "*":
+            exit()
         else:
             print("Please enter a valid option.")
-
+        time.sleep(0.25)
 
 if __name__ == "__main__":
 
-    main()
+    main(True)
