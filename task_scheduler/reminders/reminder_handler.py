@@ -59,7 +59,6 @@ class RemindersHandler:
                 self.handle_delete()
             else:
                 print("Please enter a valid option.")
-
     def save_to_server(self):
         self.reminders.to_csv(self.path, header=True, index=False, mode='w')
     def launch_app_group(self, apps):
@@ -96,7 +95,6 @@ class RemindersHandler:
                     r.start()
             except:
                 raise threading.ThreadError
-            
     def update_reminder(self, index, newtime, newmessage):
         """[update reminder]
 
@@ -198,7 +196,6 @@ class RemindersHandler:
     def start_reminder_thread(self):
         reminder = threading.Thread(target=self.reminder_thread)
         reminder.start()  
-
     def add_reminder(self, time, message):
         self.reminders = self.reminders.append({"time": dt.strptime(time, "%Y-%m-%d %H:%M:%S" ), "message": message}, ignore_index=True)
         self.sort_reminders()
@@ -221,7 +218,6 @@ class RemindersHandler:
         if msg == "c": return "c"
         self.add_reminder(f"{dt} {tm}", msg)
         print("Your new reminder has been saved successfully!")
-
     def add_app_group(self,group):
         group_time = f"{group['Date']} {group['Time']}"
         apps = group.get('1',group.get('2',group.get('3')))
@@ -244,7 +240,6 @@ class RemindersHandler:
         idx = input("➤➤➤   ")
         self.delete_reminder(int(idx))
         print("Reminder has been deleted successfully!")
-
 
 if __name__ == "__main__":
     rmh = RemindersHandler("./tests/test_reminders/reminders.csv")
