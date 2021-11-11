@@ -245,3 +245,116 @@ As a user  I want something simple to entertain me that does not interfere with
 2. Ensure the feature gets turned off when the user does so.
 3. Ensure the program will offer the user something entertaining or joyful.
 
+##  How to Start your app scenario
+Our Assistant Anton print welcome messagat at first time and ask user to choose which option user:
+<!-- REMINDER -->
+```
+Hello I’m Anton, I’m your assistant, to get started, just type the letter corresponding to the activity you want to do then hit enter.
+Options:     s:  Search	    r:  Reminder    n:  Notes    a: App-Group    e: Entertainment   q: Quit
+```
+now  user inside reminder feature and show this message to start input:
+```
+Options { u : update a reminder    d : delete a reminder    q : back to main   a : add new reminder }
+```
+if user choose ```u```
+show message to input time
+```
+Enter time for new reminder, should follow HH:MM:SS, and in 24 hrs. format: (c) to cancel
+```
+show message to input date
+```
+Enter date for new reminder, should follow YYYY-MM-DD: (c) to cancel
+```
+ask user to enter message
+```
+Enter message for new reminder, leave empty if no message is needed: (c) to cancel
+```
+then the programme ask user to choose which reminder want to update
+```
+Enter the index of the reminder you want to update:
+```
+then ask them to update on time and show old time:
+```
+Enter new time, empty to keep the old one, old one is
+```
+Then ask to update the date :
+```
+Enter new date, empty to keep the old one, old one is
+```
+Then ask to update the message :
+```
+Enter new message, empty to keep the old one, old one is
+```
+After that finish show:
+```
+Reminder has been updated successfully!
+```
+
+and after user finish reminder will show 
+```
+Options:     s:  Search	    r:  Reminder    n:  Notes    a: App-Group    e: Entertainment   q: Quit
+<!-- SEARCH -->
+
+```
+if user input s then will move to search feature and user inter search topic 
+```
+Welcome to search, start by typing something to search for.
+Search >>>
+```
+show the result based on user input and show opertion 
+```
+Options:   b: go back to article list    n: save as a note  q: quit
+```
+if user input b:
+   * will show a list of site to search again
+if user input n:
+    * save the choose article in the note
+if user input q:
+    * finish all operation in search feature and go to mean function and show this message
+```
+Hello I’m Anton, I’m your assistant, to get started, just type the letter corresponding to the activity you want to do then hit enter.
+    Options:     s:  Search	    r:  Reminder    n:  Notes    a: App-Group    e: Entertainment   q: Quit
+```
+if user enter ```a``` will move to group app and show the following :
+[group_app link](https://github.com/codepyrates/task-scheduler/blob/feature/launch/task_scheduler/group/README.md)
+
+if user enter ```n``` will move to note feature
+```
+************** Notes Page ****************
+print('Please choose one of the following to do
+a: Add new note, v: View notes, d: Delete note, m: Modify note, q: Quit,  >>>
+```
+if user enter ```a``` to start add note
+```
+Title of the new note >>>
+Content of the new note >>>
+Note added successfully!
+```
+if user enter ```a``` function show the old note store
+
+if the user enter ```d``` will show:
+```
+Enter the number of the note you want to delete >>>
+Note number {note number} has been deleted successfully!
+```
+if user enter ```m```will show:
+```
+enter the index of the note >>>
+enter the new title >>>
+enter the new content >>>
+note number {note number} has been modified successfully!
+```
+if user enter ```s```will show:
+```
+notes have been successfully uploaded to the server!
+```
+```
+Hello I’m Anton, I’m your assistant, to get started, just type the letter corresponding to the activity you want to do then hit enter.
+    Options:     s:  Search	    r:  Reminder    n:  Notes    a: App-Group    e: Entertainment   q: Quit
+```
+
+
+
+
+
+
