@@ -58,8 +58,7 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .nox/
-.coverage
-.coverage.*
+
 .cache
 nosetests.xml
 coverage.xml
@@ -321,7 +320,7 @@ coverage*.xml
 coverage*.info
 
 # Visual Studio code coverage results
-*.coverage
+
 *.coveragexml
 
 # NCrunch
