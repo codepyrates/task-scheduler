@@ -58,7 +58,7 @@ def main(skip):
         entertainment_th.start()
     while True:
         os.system("clear")
-        options = "Options { r : reminders    a : app grouping    s : search   n : notes    e : entertainment    q : quit}"
+        options = "Options { r : reminders    a : app grouping    s : search    n : notes    q : quit}"
         options = colored(options, 'cyan', attrs=['bold'])
         print(options)
         pmt = input("➤➤➤   ")
