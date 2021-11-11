@@ -17,16 +17,16 @@ def reminder_handler():
     return rmh
 
 def  test_delete_reminder_by_number_of_remaining_reminders(reminder_handler):
-    expected = 2
+    expected = 1
     reminder_handler.delete_reminder(1)
     actual = len(reminder_handler.reminders)
     assert actual == expected
     
 
 def test_delete_reminder_by_value_of_remaining_reminders(reminder_handler):
-    expected = "new reminder"
+    expected = "this a reminder"
     reminder_handler.delete_reminder(1)
-    actual = reminder_handler.reminders.iloc[1]['message']
+    actual = reminder_handler.reminders.iloc[0]['message']
     assert actual == expected
     
 def  test_delete_reminder_scenario_1(reminder_handler):
