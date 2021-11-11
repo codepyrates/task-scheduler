@@ -47,12 +47,12 @@ jobs:
         # The `GITHUB_TOKEN` or `COVERALLS_REPO_TOKEN`.
         github-token: IqcNZTvK4QpVSQgVsXFm7O7vV9iiqtMZk
         # Set to true if you are using parallel jobs, then use `parallel-finished: true` for the last action.
-        parallel: # optional
+        parallel: false
         # Set to true for the last action when using `parallel: true`.
-        parallel-finished: # optional
+        parallel-finished: false
         # The name of a sub-directory in which the coverage files are to be found.
-        base-path: # optional
+        base-path: true
         # A description of the current job used in connection with parallel.
-        flag-name: # optional
+        flag-name: true
         # Set to `true` to increase logger verbosity.
-        debug: # optional
+        debug: false
